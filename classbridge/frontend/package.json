@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "node scripts/run-local.mjs dev",
     "dev:web": "vinext dev",
-    "build": "vinext build",
+    "build": "next build",
+    "build:vinext": "vinext build",
     "start": "node scripts/run-local.mjs start",
     "start:web": "node scripts/patch-vinext-windows-static.mjs && vinext start",
     "ai:check": "node scripts/run-local.mjs --check",
