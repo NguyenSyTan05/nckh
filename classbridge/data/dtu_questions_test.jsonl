@@ -1,0 +1,32 @@
+{"id": "q001", "text": "What is machine learning?", "cluster": "ml_definition"}
+{"id": "q002", "text": "Can you explain machine learning?", "cluster": "ml_definition"}
+{"id": "q003", "text": "Máy học là gì vậy thầy?", "cluster": "ml_definition"}
+{"id": "q004", "text": "Em chưa hiểu machine learning, thầy giải thích lại được không?", "cluster": "ml_definition"}
+{"id": "q005", "text": "Machine learning khác gì với AI thông thường?", "cluster": "ml_definition"}
+{"id": "q006", "text": "What is deep learning?", "cluster": "dl_definition"}
+{"id": "q007", "text": "How does deep learning differ from machine learning?", "cluster": "dl_definition"}
+{"id": "q008", "text": "Deep learning là gì và hoạt động như thế nào?", "cluster": "dl_definition"}
+{"id": "q009", "text": "Thầy ơi, deep learning và machine learning giống hay khác nhau?", "cluster": "dl_definition"}
+{"id": "q010", "text": "When is the midterm exam?", "cluster": "exam_date"}
+{"id": "q011", "text": "Khi nào thi giữa kỳ thầy ơi?", "cluster": "exam_date"}
+{"id": "q012", "text": "Lịch thi giữa kỳ là khi nào?", "cluster": "exam_date"}
+{"id": "q013", "text": "Midterm exam schedule?", "cluster": "exam_date"}
+{"id": "q014", "text": "Thầy cho em hỏi ngày thi giữa kỳ ạ?", "cluster": "exam_date"}
+{"id": "q015", "text": "What are the requirements for the final project?", "cluster": "project_requirements"}
+{"id": "q016", "text": "Can you clarify the project requirements?", "cluster": "project_requirements"}
+{"id": "q017", "text": "Yêu cầu đồ án là gì thầy?", "cluster": "project_requirements"}
+{"id": "q018", "text": "Đồ án cuối kỳ cần làm những gì ạ?", "cluster": "project_requirements"}
+{"id": "q019", "text": "Em không hiểu yêu cầu bài tập lớn, thầy giải thích được không?", "cluster": "project_requirements"}
+{"id": "q020", "text": "Can you explain gradient descent?", "cluster": "gradient_descent"}
+{"id": "q021", "text": "How does gradient descent work?", "cluster": "gradient_descent"}
+{"id": "q022", "text": "Gradient descent hoạt động như thế nào?", "cluster": "gradient_descent"}
+{"id": "q023", "text": "Thuật toán gradient descent là gì?", "cluster": "gradient_descent"}
+{"id": "q024", "text": "What is a neural network?", "cluster": "neural_network"}
+{"id": "q025", "text": "How do neural networks work?", "cluster": "neural_network"}
+{"id": "q026", "text": "Mạng nơ-ron nhân tạo là gì?", "cluster": "neural_network"}
+{"id": "q027", "text": "Thầy giải thích mạng nơ-ron cho em hiểu với ạ", "cluster": "neural_network"}
+{"id": "q028", "text": "How do I install Python on Windows?", "cluster": "singleton_python_install"}
+{"id": "q029", "text": "What is the attendance policy?", "cluster": "singleton_attendance"}
+{"id": "q030", "text": "Thầy có thể recommend sách hay về AI không?", "cluster": "singleton_book_rec"}
+{"id": "q031", "text": "Where can I find the lecture slides?", "cluster": "singleton_slides"}
+{"id": "q032", "text": "Is the project individual or group work?", "cluster": "singleton_group_work"}

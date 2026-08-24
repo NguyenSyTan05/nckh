@@ -1,0 +1,48 @@
+{
+  "best_global_step": 5,
+  "best_metric": 99.35897435897436,
+  "best_model_checkpoint": "../backend/ai-service/whisper-voice-fine-tuned\\checkpoint-5",
+  "epoch": 1.0,
+  "eval_steps": 500,
+  "global_step": 5,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "eval_cer": 97.72727272727273,
+      "eval_cer_en": 96.19377162629758,
+      "eval_cer_vi": 98.69281045751634,
+      "eval_loss": 6.397411346435547,
+      "eval_runtime": 11.8773,
+      "eval_samples_per_second": 1.179,
+      "eval_steps_per_second": 0.168,
+      "eval_wer": 99.35897435897436,
+      "eval_wer_en": 97.87234042553192,
+      "eval_wer_vi": 100.0,
+      "step": 5
+    }
+  ],
+  "logging_steps": 20,
+  "max_steps": 5,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 1,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": true
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 2.39022047232e+16,
+  "train_batch_size": 8,
+  "trial_name": null,
+  "trial_params": null
+}

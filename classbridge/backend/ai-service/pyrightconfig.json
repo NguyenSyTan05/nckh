@@ -1,0 +1,23 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.11",
+  "pythonPlatform": "Windows",
+  "typeCheckingMode": "off",
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "reportGeneralTypeIssues": false,
+  "reportAttributeAccessIssue": false,
+  "reportOperatorIssue": false,
+  "reportReturnType": false,
+  "reportArgumentType": false,
+  "reportCallIssue": false,
+  "reportIndexIssue": false,
+  "reportOptionalMemberAccess": false,
+  "reportOptionalSubscript": false,
+  "reportOptionalCall": false,
+  "reportUnknownMemberType": false,
+  "reportPrivateImportUsage": false,
+  "include": ["."],
+  "exclude": [".venv/**", "__pycache__/**", ".models/**", "tests/**"]
+}

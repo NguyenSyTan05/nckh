@@ -1,0 +1,4 @@
+{"audio":"../data/vi-north-teacher-01.wav","text":"Hôm nay chúng ta học về trí tuệ nhân tạo.","language":"vi","speaker_id":"teacher-vi-01","accent":"vi-north"}
+{"audio":"../data/vi-central-teacher-02.wav","text":"Các em hãy mở tài liệu ở chương thứ hai.","language":"vi","speaker_id":"teacher-vi-02","accent":"vi-central"}
+{"audio":"../data/en-vietnamese-accent-01.wav","text":"Today we study distributed systems.","language":"en","speaker_id":"teacher-en-01","accent":"en-vietnamese"}
+{"audio":"../data/en-native-02.wav","text":"Please compare the two algorithms.","language":"en","speaker_id":"teacher-en-02","accent":"en-native"}

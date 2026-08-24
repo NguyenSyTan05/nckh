@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext"],
+    "types": ["@cloudflare/workers-types/latest"],
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "drizzle-orm": ["../frontend/node_modules/drizzle-orm"],
+      "drizzle-orm/*": ["../frontend/node_modules/drizzle-orm/*"],
+      "cloudflare:workers": ["../frontend/node_modules/@cloudflare/workers-types/latest"]
+    },
+    "typeRoots": [
+      "../frontend/node_modules/@types",
+      "../frontend/node_modules"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}

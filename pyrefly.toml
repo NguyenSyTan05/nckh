@@ -1,0 +1,40 @@
+# Pyrefly config — TailieuNPKH root
+python_interpreter = "classbridge/backend/ai-service/.venv/Scripts/python.exe"
+python_version = "3.11"
+search_path = [
+  "classbridge/backend/ai-service",
+  "classbridge/backend/ai-service/.venv/Lib/site-packages",
+  "classbridge/test/backend",
+  "classbridge/training"
+]
+
+project-includes = [
+  "classbridge/**"
+]
+
+project-excludes = [
+  "**/__pycache__/**",
+  "**/.venv/**",
+  "**/.models/**"
+]
+
+[errors]
+missing-import = false
+bad-argument-type = false
+bad-return-type = false
+bad-assignment = false
+missing-attribute = false
+not-callable = false
+invalid-argument = false
+undefined-name = false
+unknown-name = false
+parse-error = false
+invalid-syntax = false
+missing-return = false
+bad-specialization = false
+unsupported-operand = false
+deprecated = false
+unnecessary-type-conversion = false
+import-cycle = false
+unbound-import = false
+unused-ignore = false

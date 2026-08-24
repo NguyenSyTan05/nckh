@@ -1,0 +1,77 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.venv/
+env/
+venv/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Next.js Build
+.next/
+out/
+.vercel
+
+# Testing & Cache
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+cache/
+.cache/
+
+# Large Model Weights (> 100MB exceed GitHub Limits)
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.tar.gz
+*.zip
+*.parquet
+
+# Heavy Audio Datasets (Keep manifests and code only)
+classbridge/training/data/downloads/
+classbridge/training/data/vivos/
+classbridge/training/ViMD_Dataset/
+classbridge/backend/data/samples/
+classbridge/training/outputs/
+ai_backend/03_MODEL_CHECKPOINTS/
+ai_backend/04_DATASETS_TAM_THOI/audio/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE & OS
+.git_tool/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

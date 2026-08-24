@@ -1,0 +1,42 @@
+# ClassBridge Training Module - Requirements
+# Cài đặt: pip install -r requirements.txt
+# Hoặc dùng venv của ai-service: pip install -r requirements.txt --target ../ai-service/.venv/Lib/site-packages
+
+# ── Core ML ──────────────────────────────────────────────────────────────────
+torch>=2.1.0
+torchaudio>=2.1.0
+
+# ── Hugging Face ─────────────────────────────────────────────────────────────
+transformers>=4.40.0
+peft>=0.10.0
+datasets>=2.18.0
+accelerate>=0.28.0
+evaluate>=0.4.0
+huggingface_hub>=0.22.0
+
+# ── Speech Recognition ────────────────────────────────────────────────────────
+faster-whisper>=1.0.0
+ctranslate2>=4.0.0
+
+# ── Audio Processing ─────────────────────────────────────────────────────────
+sounddevice>=0.4.6
+soundfile>=0.12.1
+librosa>=0.10.0
+numpy>=1.24.0
+
+# ── Evaluation ───────────────────────────────────────────────────────────────
+jiwer>=3.0.0
+sacrebleu>=2.3.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm>=4.66.0
+requests>=2.31.0
+
+# ── Semantic Question Clustering ──────────────────────────────────────────────
+sentence-transformers>=2.6.0   # paraphrase-multilingual-MiniLM-L12-v2 (EN+VI)
+scipy>=1.11.0                  # cosine_similarity utilities
+
+# ── Audio Streaming Pipeline <7s ──────────────────────────────────────────────
+websockets>=12.0               # WebSocket client/server
+# silero-vad (cài thông qua torch.hub, không cần pip install riêng)
+# Nếu muốn dùng silero offline: pip install silero

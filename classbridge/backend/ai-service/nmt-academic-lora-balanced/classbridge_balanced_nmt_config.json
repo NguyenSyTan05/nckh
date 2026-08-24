@@ -1,0 +1,11 @@
+{
+  "base_model": "VietAI/envit5-translation",
+  "dataset": "data\\manifests\\translation_balanced.jsonl",
+  "epochs": 3,
+  "batch_size": 2,
+  "learning_rate": 5e-05,
+  "lora_rank": 16,
+  "train_rows": 748,
+  "eval_rows": 132,
+  "duration_seconds": 332.3
+}

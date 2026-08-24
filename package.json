@@ -1,0 +1,15 @@
+{
+  "name": "classbridge-master",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode run\"",
+    "start": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode run\"",
+    "train": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode train\"",
+    "train:voice": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode voice\"",
+    "train:accent": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode accent\"",
+    "train:dtu": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode dtu\"",
+    "record": "powershell -ExecutionPolicy Bypass -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; & ./classbridge/start-classbridge.ps1 -Mode record\"",
+    "test": "npm --prefix classbridge/frontend test"
+  }
+}

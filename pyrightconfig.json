@@ -1,0 +1,14 @@
+{
+  "include": [
+    "classbridge",
+    "test"
+  ],
+  "extraPaths": [
+    "classbridge/backend/ai-service",
+    "backend/ai-service",
+    "d:/TailieuNPKH/classbridge/backend/ai-service"
+  ],
+  "pythonVersion": "3.11",
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none"
+}
