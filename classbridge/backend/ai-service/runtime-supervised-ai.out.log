@@ -6795,3 +6795,1370 @@ INFO:     127.0.0.1:54451 - "GET /health HTTP/1.1" 200 OK
 INFO:     127.0.0.1:54457 - "GET /health HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50541 - "GET /health HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50547 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50557 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60731 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53907 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53825 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53827 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58241 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58242 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58243 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58244 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58245 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54800 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63532 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63542 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63547 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56680 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56691 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56692 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56693 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52493 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64327 - "POST /stream/start HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=001 duration=1.30s
+[RAW ASR]     Hello everyone!
+[STABLE]      Hello everyone!
+
+[AUDIO]       chunk_id=002 duration=1.30s (FINAL)
+[RAW ASR]     Hello everyone!
+[STABLE]      Hello everyone!
+[CORRECTED]   Hello everyone!
+[FINAL]       Hello everyone!
+INFO:     127.0.0.1:63234 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] Hello everybody!
+
+[AUDIO]       chunk_id=003 duration=1.20s
+[RAW ASR]     Alo, halo!
+[STABLE]      Alo, halo!
+
+[AUDIO]       chunk_id=004 duration=1.20s (FINAL)
+[RAW ASR]     Alo, halo!
+[STABLE]      Alo, halo!
+[CORRECTED]   Alo, halo!
+[FINAL]       Alo, halo!
+[TRANSLATION] Hello, halo!
+INFO:     127.0.0.1:49433 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49435 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=005 duration=3.00s
+[RAW ASR]     Hello, tôi là người Việt Nam? Hello!
+[STABLE]      Hello, tôi là người Việt Nam? Hello!
+
+[AUDIO]       chunk_id=006 duration=3.00s (FINAL)
+[RAW ASR]     Hello, tôi là người Việt Nam. Hello.
+[STABLE]      Hello, tôi là người Việt Nam. Hello.
+[CORRECTED]   Hello, tôi là người Việt Nam. Hello.
+[FINAL]       Hello, tôi là người Việt Nam. Hello.
+INFO:     127.0.0.1:49437 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] Hello, I'm Vietnamese. Hello.
+
+[AUDIO]       chunk_id=007 duration=1.20s
+[RAW ASR]     Há lô, há lô!
+[STABLE]      Há lô, há lô!
+
+[AUDIO]       chunk_id=008 duration=1.20s (FINAL)
+[RAW ASR]     Há lô, há lô!
+[STABLE]      Há lô, há lô!
+[CORRECTED]   Há lô, há lô!
+[FINAL]       Há lô!
+[TRANSLATION] Hello!
+
+[AUDIO]       chunk_id=009 duration=1.40s
+[RAW ASR]     Everybody know it.
+[STABLE]      Everybody know it.
+
+[AUDIO]       chunk_id=010 duration=1.40s (FINAL)
+[RAW ASR]     Everybody know it.
+[STABLE]      Everybody know it.
+[CORRECTED]   Everybody know it.
+[FINAL]       Everybody know it.
+[TRANSLATION] Ai cũng biết mà.
+INFO:     127.0.0.1:49438 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49447 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54837 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56820 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51941 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60057 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=011 duration=1.70s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=012 duration=2.50s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=013 duration=3.30s
+[RAW ASR]     hello
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=014 duration=3.30s (FINAL)
+[RAW ASR]     hello
+[STABLE]      hello
+[CORRECTED]   hello
+[FINAL]       Hello
+[TRANSLATION] Hello.
+INFO:     127.0.0.1:60067 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60075 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=015 duration=1.40s
+[RAW ASR]     Tôi là người Việt Nam.
+[STABLE]      Tôi là người Việt Nam.
+
+[AUDIO]       chunk_id=016 duration=2.30s
+[RAW ASR]     Tôi là người Việt Nam.
+[STABLE]      Tôi là người Việt Nam.
+
+[AUDIO]       chunk_id=017 duration=2.30s (FINAL)
+[RAW ASR]     Tôi là người Việt Nam.
+[STABLE]      Tôi là người Việt Nam.
+[CORRECTED]   Tôi là người Việt Nam.
+[FINAL]       Tôi là người Việt Nam.
+[TRANSLATION] Tôi là người Việt Nam.
+INFO:     127.0.0.1:60076 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=018 duration=0.30s
+[RAW ASR]     Câu
+[STABLE]      Câu
+
+[AUDIO]       chunk_id=019 duration=1.20s
+[RAW ASR]     Cầu trúc dư liêu băng
+[STABLE]      Cầu trúc dư liêu băng
+
+[AUDIO]       chunk_id=020 duration=2.00s
+[RAW ASR]     Cầu trúc dư liều 3 giải thuật
+[STABLE]      Cầu trúc dư liều 3 giải thuật
+INFO:     127.0.0.1:57149 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=021 duration=2.30s
+[RAW ASR]     Cầu trúc dư liêu ba giai thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật
+
+[AUDIO]       chunk_id=022 duration=3.30s
+[RAW ASR]     Cầu trúc dư liêu ba giai thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật
+
+[AUDIO]       chunk_id=023 duration=3.60s
+[RAW ASR]     Cầu trúc dư liêu ba giai thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật
+
+[AUDIO]       chunk_id=024 duration=4.40s
+[RAW ASR]     Cầu trúc dư liệu 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 giải
+INFO:     127.0.0.1:57150 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=025 duration=5.30s
+[RAW ASR]     Cầu trúc dư liều 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liều 3 giải
+
+[AUDIO]       chunk_id=026 duration=6.20s
+[RAW ASR]     Cầu trúc dư liệu 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 giải
+
+[AUDIO]       chunk_id=027 duration=6.50s
+[RAW ASR]     Cầu trúc dư liệu 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 giải
+
+[AUDIO]       chunk_id=028 duration=7.30s
+[RAW ASR]     Cầu trúc dư liều 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 liều giải
+INFO:     127.0.0.1:57155 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=029 duration=7.60s
+[RAW ASR]     Cầu trúc dư liều 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 liều giải
+
+[AUDIO]       chunk_id=030 duration=7.60s (FINAL)
+[RAW ASR]     Cẩu trúc dư liều 3 giải thuật
+[STABLE]      Cầu trúc dư liêu ba giai thuật liệu 3 liều Cẩu trúc dư liều 3 giải thuật
+[CORRECTED]   Cầu trúc dư liêu ba giai thuật liệu 3 liều Cẩu trúc dư liều 3 giải thuật
+[FINAL]       Cầu trúc dư liêu ba giai thuật liệu 3 liều Cẩu trúc dư liều 3 giải thuật.
+[TRANSLATION] Three-stage redundant bridge 3-dose 3-dosing redundant bridge 3 algorithms.
+
+[AUDIO]       chunk_id=031 duration=1.60s
+[RAW ASR]     Cách Black Box
+[STABLE]      Cách Black Box
+INFO:     127.0.0.1:57157 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=032 duration=1.60s (FINAL)
+[RAW ASR]     Cách Black Box
+[STABLE]      Cách Black Box
+[CORRECTED]   Cách Black Box
+[FINAL]       Cách Black Box.
+[TRANSLATION] Cách Black Box.
+INFO:     127.0.0.1:57160 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=033 duration=1.30s
+[RAW ASR]     Chat Black
+[STABLE]      Chat Black
+
+[AUDIO]       chunk_id=034 duration=2.10s
+[RAW ASR]     chat, black box
+[STABLE]      chat, black box
+
+[AUDIO]       chunk_id=035 duration=2.10s (FINAL)
+[RAW ASR]     chat, black box
+[STABLE]      chat, black box
+[CORRECTED]   chat, black box
+[FINAL]       Chat, black box.
+[TRANSLATION] Chat, black box.
+INFO:     127.0.0.1:57161 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=036 duration=1.30s
+[RAW ASR]     Hộp thứ điện.
+[STABLE]      Hộp thứ điện.
+
+[AUDIO]       chunk_id=037 duration=1.30s (FINAL)
+[RAW ASR]     Hộp thứ điện.
+[STABLE]      Hộp thứ điện.
+[CORRECTED]   Hộp thứ điện.
+[FINAL]       Hộp thứ điện.
+[TRANSLATION] - Điện thoại hộp.
+INFO:     127.0.0.1:57163 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57170 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57173 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57174 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57179 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57183 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57185 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57193 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60998 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61003 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61004 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61014 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58671 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58675 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58680 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59237 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59243 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52588 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=038 duration=1.50s
+[RAW ASR]     Hộp thứ đứa điện
+[STABLE]      Hộp thứ đứa điện
+
+[AUDIO]       chunk_id=039 duration=1.50s (FINAL)
+[RAW ASR]     Hộp thứ đứa điện
+[STABLE]      Hộp thứ đứa điện
+[CORRECTED]   Hộp thứ đứa điện
+[FINAL]       Hộp thứ đứa điện.
+INFO:     127.0.0.1:52594 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] The box is electric.
+INFO:     127.0.0.1:52598 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=040 duration=0.60s
+[RAW ASR]     Hello
+[STABLE]      Hello
+
+[AUDIO]       chunk_id=041 duration=1.70s
+[RAW ASR]     Hello every day
+[STABLE]      Hello every day
+
+[AUDIO]       chunk_id=042 duration=2.50s
+[RAW ASR]     Hello Everyday
+[STABLE]      Hello Everyday
+INFO:     127.0.0.1:52600 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=043 duration=2.50s (FINAL)
+[RAW ASR]     Hello Everyday
+[STABLE]      Hello Everyday
+[CORRECTED]   Hello Everyday
+[FINAL]       Hello Everyday
+[TRANSLATION] Hello Everyday.
+INFO:     127.0.0.1:52601 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52602 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52608 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52612 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52614 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=044 duration=4.00s
+[RAW ASR]     Nothing is easy.
+[STABLE]      Nothing is easy.
+
+[AUDIO]       chunk_id=045 duration=4.00s (FINAL)
+[RAW ASR]     Nothing is easy.
+[STABLE]      Nothing is easy.
+[CORRECTED]   Nothing is easy.
+[FINAL]       Nothing is easy.
+[TRANSLATION] Không có gì là dễ dàng.
+INFO:     127.0.0.1:52618 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=046 duration=3.30s
+[RAW ASR]     Nothing is easy. Nothing is free.
+[STABLE]      Nothing is easy. Nothing is free.
+
+[AUDIO]       chunk_id=047 duration=4.10s
+[RAW ASR]     Nothing is easy. Nothing is free.
+[STABLE]      Nothing is easy. Nothing is free.
+
+[AUDIO]       chunk_id=048 duration=4.10s (FINAL)
+[RAW ASR]     Nothing is easy. Nothing is free.
+[STABLE]      Nothing is easy. Nothing is free.
+[CORRECTED]   Nothing is easy. Nothing is free.
+[FINAL]       Nothing is easy. Nothing is free.
+[TRANSLATION] Không có gì là dễ dàng. Không có gì là miễn phí.
+
+[AUDIO]       chunk_id=049 duration=1.20s
+[RAW ASR]     If you want to be successful,
+[STABLE]      If you want to be successful,
+INFO:     127.0.0.1:52624 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=050 duration=1.50s
+[RAW ASR]     If you want to be successful, you
+[STABLE]      If you want to be successful, you
+
+[AUDIO]       chunk_id=051 duration=2.30s
+[RAW ASR]     If you want to be successful, you have to.
+[STABLE]      If you want to be successful, you have to.
+
+[AUDIO]       chunk_id=052 duration=3.10s
+[RAW ASR]     If you want to be successful, you have to pay the price.
+[STABLE]      If you want to be successful, you have to pay the price.
+
+[AUDIO]       chunk_id=053 duration=3.10s (FINAL)
+[RAW ASR]     If you want to be successful, you have to pay the price.
+[STABLE]      If you want to be successful, you have to pay the price.
+[CORRECTED]   If you want to be successful, you have to pay the price.
+[FINAL]       If you want to be successful, you have to pay the price.
+[TRANSLATION] Nếu muốn thành công, anh phải trả giá.
+INFO:     127.0.0.1:52625 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=054 duration=2.40s
+[RAW ASR]     Alibaba 18 years
+[STABLE]      Alibaba 18 years
+
+[AUDIO]       chunk_id=055 duration=3.20s
+[RAW ASR]     Alibaba 18 years to today's size.
+[STABLE]      Alibaba 18 years to today's size.
+
+[AUDIO]       chunk_id=056 duration=3.20s (FINAL)
+[RAW ASR]     Alibaba 18 years to today's size.
+[STABLE]      Alibaba 18 years to today's size.
+[CORRECTED]   Alibaba 18 years to today's size.
+[FINAL]       Alibaba 18 years to today's size.
+[TRANSLATION] 18 năm trước kích thước của ngày hôm nay.
+INFO:     127.0.0.1:52627 - "GET /health HTTP/1.1" 200 OK
+INFO:     171.225.184.134:0 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=057 duration=2.00s
+[RAW ASR]     Yeah, we are lucky.
+[STABLE]      Yeah, we are lucky.
+
+[AUDIO]       chunk_id=058 duration=2.90s
+[RAW ASR]     Yeah, we are lucky.
+[STABLE]      Yeah, we are lucky.
+
+[AUDIO]       chunk_id=059 duration=3.70s
+[RAW ASR]     Yeah, we are lucky. But we
+[STABLE]      Yeah, we are lucky. But we
+
+[AUDIO]       chunk_id=060 duration=4.60s
+[RAW ASR]     Yeah, we are lucky. We work.
+[STABLE]      Yeah, we are lucky. We work.
+
+[AUDIO]       chunk_id=061 duration=5.40s
+[RAW ASR]     Yeah, we are lucky. But we work much harder.
+[STABLE]      Yeah, we are lucky. But we work much harder.
+INFO:     127.0.0.1:52634 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=062 duration=6.30s
+[RAW ASR]     Yeah, we are lucky. But we work much harder than most of them.
+[STABLE]      Yeah, we are lucky. But we work much harder than most of them.
+
+[AUDIO]       chunk_id=063 duration=6.30s (FINAL)
+[RAW ASR]     Yeah, we are lucky. But we work much harder than most of them.
+[STABLE]      Yeah, we are lucky. But we work much harder than most of them.
+[CORRECTED]   Yeah, we are lucky. But we work much harder than most of them.
+[FINAL]       Yeah, we are lucky. But we work much harder than most of them.
+
+[AUDIO]       chunk_id=064 duration=1.50s
+[RAW ASR]     We never sleep.
+[STABLE]      We never sleep.
+[TRANSLATION] Yeah, chúng ta may mắn đấy. Nhưng chúng tôi làm việc chăm chỉ hơn hầu hết bọn họ.
+
+[AUDIO]       chunk_id=065 duration=2.40s
+[RAW ASR]     We never sleep well as some
+[STABLE]      We never sleep well as some
+
+[AUDIO]       chunk_id=066 duration=3.20s
+[RAW ASR]     We never sleep well as some in the East.
+[STABLE]      We never sleep well as some in the East.
+
+[AUDIO]       chunk_id=067 duration=3.20s (FINAL)
+[RAW ASR]     We never sleep well as some in the East.
+[STABLE]      We never sleep well as some in the East.
+[CORRECTED]   We never sleep well as some in the East.
+[FINAL]       We never sleep well as some in the East.
+INFO:     127.0.0.1:50685 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] Ở miền Đông chúng tôi không ngủ ngon như ở miền Đông.
+
+[AUDIO]       chunk_id=068 duration=0.30s
+[RAW ASR]     I
+[STABLE]      I
+
+[AUDIO]       chunk_id=069 duration=1.10s
+[RAW ASR]     I travel.
+[STABLE]      I travel.
+
+[AUDIO]       chunk_id=070 duration=1.90s
+[RAW ASR]     I traveled last year.
+[STABLE]      I traveled last year.
+
+[AUDIO]       chunk_id=071 duration=2.70s
+[RAW ASR]     I traveled last year eight hundred
+[STABLE]      I traveled last year eight hundred
+
+[AUDIO]       chunk_id=072 duration=3.60s
+[RAW ASR]     I traveled last year 860.
+[STABLE]      I traveled last year 860.
+INFO:     127.0.0.1:50689 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=073 duration=4.40s
+[RAW ASR]     I traveled last year 867.
+[STABLE]      I traveled last year 867.
+
+[AUDIO]       chunk_id=074 duration=5.30s
+[RAW ASR]     I traveled last year 867 hours a year.
+[STABLE]      I traveled last year 867 hours a year.
+
+[AUDIO]       chunk_id=075 duration=6.20s
+[RAW ASR]     I traveled last year 867 hours a year.
+[STABLE]      I traveled last year 867 hours a year.
+
+[AUDIO]       chunk_id=076 duration=7.10s
+[RAW ASR]     I traveled last year 867 hours a year in the flip plane.
+[STABLE]      I traveled last year 867 hours a year in the flip plane.
+
+[AUDIO]       chunk_id=077 duration=7.10s (FINAL)
+[RAW ASR]     I traveled last year 867 hours a year in the flip plane.
+[STABLE]      I traveled last year 867 hours a year in the flip plane.
+[CORRECTED]   I traveled last year 867 hours a year in the flip plane.
+[FINAL]       I traveled last year 867 hours a year in the flip plane.
+[TRANSLATION] Năm ngoái tôi đi 867 giờ một năm bằng máy bay lật.
+
+[AUDIO]       chunk_id=078 duration=1.30s
+[RAW ASR]     the plank.
+[STABLE]      the plank.
+INFO:     127.0.0.1:50693 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=079 duration=2.20s
+[RAW ASR]     in the play.
+[STABLE]      in the play.
+
+[AUDIO]       chunk_id=080 duration=3.00s
+[RAW ASR]     the play.
+[STABLE]      the play.
+
+[AUDIO]       chunk_id=081 duration=4.70s
+[RAW ASR]     Tình hành thi đụng
+[STABLE]      Tình hành thi đụng
+
+[AUDIO]       chunk_id=082 duration=5.00s
+[RAW ASR]     Tình hành thi đụng
+[STABLE]      Tình hành thi đụng
+INFO:     127.0.0.1:50712 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=083 duration=5.90s
+[RAW ASR]     Tình hành thi đụng
+[STABLE]      Tình hành thi đụng
+
+[AUDIO]       chunk_id=084 duration=6.80s
+[RAW ASR]     Tình hành thi đụng
+[STABLE]      Tình hành thi đụng
+
+[AUDIO]       chunk_id=085 duration=7.10s
+[RAW ASR]     Tình hành thi đụng
+[STABLE]      Tình hành thi đụng
+INFO:     127.0.0.1:62885 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=086 duration=9.00s
+[RAW ASR]     Tính hành thi đụng. Alo, alo.
+[STABLE]      Tình hành thi đụng Alo,
+
+[AUDIO]       chunk_id=087 duration=9.00s (FINAL)
+[RAW ASR]     Tình hành thị đụng. Alo, alo.
+[STABLE]      Tình hành thị đụng. Alo, alo.
+[CORRECTED]   Tình hành thị đụng. Alo,
+[FINAL]       Tình hành thị đụng. Alo,.
+[TRANSLATION] Tình hình hành động có thể. Alo.
+INFO:     127.0.0.1:62313 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55921 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=088 duration=1.20s
+[RAW ASR]     Hello, hello
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=089 duration=2.00s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=090 duration=2.90s
+[RAW ASR]     Hello, hello?
+[STABLE]      Hello,
+INFO:     127.0.0.1:55922 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55870 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=091 duration=5.30s (FINAL)
+[RAW ASR]     Hello,
+[STABLE]      Hello,
+[CORRECTED]   Hello,
+[FINAL]       Hello,
+[TRANSLATION] Hello.
+
+[AUDIO]       chunk_id=092 duration=0.30s
+[RAW ASR]     Hello.
+[STABLE]      Hello.
+
+[AUDIO]       chunk_id=093 duration=1.10s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=094 duration=1.90s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+INFO:     127.0.0.1:55871 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=095 duration=2.20s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+INFO:     54.174.37.65:0 - "POST /stream/start HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=096 duration=3.00s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=097 duration=3.30s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=098 duration=3.60s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+INFO:     127.0.0.1:53377 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=099 duration=3.90s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+
+[AUDIO]       chunk_id=100 duration=5.20s
+[RAW ASR]     Hello, hello.
+[STABLE]      Hello,
+INFO:     127.0.0.1:53377 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=101 duration=5.20s (FINAL)
+[RAW ASR]     Hello,
+[STABLE]      Hello,
+[CORRECTED]   Hello,
+[FINAL]       Hello,
+[TRANSLATION] Hello.
+INFO:     54.174.37.65:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /stream/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=102 duration=1.50s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=103 duration=2.40s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=001 duration=1.40s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=104 duration=3.60s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51590 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=105 duration=5.40s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=002 duration=5.80s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=003 duration=5.80s (FINAL)
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+[CORRECTED]   Hello?
+[FINAL]       Hello?
+[TRANSLATION] Hello?
+
+[AUDIO]       chunk_id=106 duration=8.10s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=107 duration=8.10s (FINAL)
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+[CORRECTED]   Hello?
+[FINAL]       Hello?
+[TRANSLATION] Hello?
+INFO:     127.0.0.1:51592 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=108 duration=2.10s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=004 duration=1.40s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=005 duration=1.40s (FINAL)
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+[CORRECTED]   Hello?
+[FINAL]       Hello?
+[TRANSLATION] Hello?
+
+[AUDIO]       chunk_id=109 duration=3.80s
+[RAW ASR]     Hello?
+[STABLE]      Hello?
+
+[AUDIO]       chunk_id=110 duration=5.80s
+[RAW ASR]     Hello? Đi về đây?
+[STABLE]      Hello? Đi về đây?
+INFO:     127.0.0.1:51594 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=111 duration=7.60s
+[RAW ASR]     Hello? Đi về đây?
+[STABLE]      Hello? Đi về đây?
+INFO:     127.0.0.1:51595 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=112 duration=12.50s
+[RAW ASR]     Every day?
+[STABLE]      Hello? Đi về Every day?
+
+[AUDIO]       chunk_id=113 duration=12.50s (FINAL)
+[RAW ASR]     Hello? Every day?
+[STABLE]      Hello? Đi về Hello? Every day?
+[CORRECTED]   Hello? Đi về Hello? Every day?
+[FINAL]       Hello? Đi về Hello? Every day?
+[TRANSLATION] Hello? Going back to Hello? Every day?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51596 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=006 duration=11.10s
+[RAW ASR]     Every day? Hello? Every day?
+[STABLE]      Every day? Hello? Every day?
+INFO:     127.0.0.1:51604 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=114 duration=4.90s
+[RAW ASR]     Há lô, hãy về đây
+[STABLE]      Há lô, hãy về đây
+
+[AUDIO]       chunk_id=007 duration=13.00s
+[RAW ASR]     Hello, EV đây What are you?
+[STABLE]      Hello, EV đây What are you?
+
+[AUDIO]       chunk_id=008 duration=13.00s (FINAL)
+[RAW ASR]     Everyday? Alo? Everyday? What are you?
+[STABLE]      Everyday? Alo? Everyday? What are you?
+[CORRECTED]   Everyday? Alo? Everyday? What are you?
+[FINAL]       Everyday? Alo? Everyday? What are you?
+
+[AUDIO]       chunk_id=115 duration=6.70s
+[RAW ASR]     Alo, em về đây What are you?
+[STABLE]      Alo, em về đây What are you?
+[TRANSLATION] Everyday? Hello? Everyday? What are you?
+
+[AUDIO]       chunk_id=116 duration=6.70s (FINAL)
+[RAW ASR]     Alo, em về đây What are you?
+[STABLE]      Alo, em về đây What are you?
+[CORRECTED]   Alo, em về đây What are you?
+[FINAL]       Alo, em về đây What are you?
+[TRANSLATION] Hello, I'm going to go. What are you?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51605 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=117 duration=1.20s
+[RAW ASR]     Tôi đề là
+[STABLE]      Tôi đề là
+
+[AUDIO]       chunk_id=009 duration=2.00s
+[RAW ASR]     Tôi đều là.
+[STABLE]      Tôi đều là.
+INFO:     127.0.0.1:51606 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=010 duration=2.00s (FINAL)
+[RAW ASR]     Tôi đều là.
+[STABLE]      Tôi đều là.
+[CORRECTED]   Tôi đều là.
+[FINAL]       Tôi đều là.
+[TRANSLATION] I'm all of them.
+
+[AUDIO]       chunk_id=118 duration=2.90s (FINAL)
+[RAW ASR]     Tôi đây là.
+[STABLE]      Tôi đây là.
+[CORRECTED]   Tôi đây là.
+[FINAL]       Tôi đây là.
+[TRANSLATION] Me this is.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=119 duration=0.60s
+[RAW ASR]     Đói
+[STABLE]      Đói
+
+[AUDIO]       chunk_id=011 duration=2.00s
+[RAW ASR]     Tôi tên là
+[STABLE]      Tôi tên là
+INFO:     127.0.0.1:51608 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=120 duration=3.00s
+[RAW ASR]     Tôi tên là
+[STABLE]      Tôi tên là
+
+[AUDIO]       chunk_id=012 duration=2.00s (FINAL)
+[RAW ASR]     Tôi tên là
+[STABLE]      Tôi tên là
+[CORRECTED]   Tôi tên là
+[FINAL]       Tôi tên là.
+[TRANSLATION] I name is.
+
+[AUDIO]       chunk_id=121 duration=3.00s (FINAL)
+[RAW ASR]     Tôi tên là
+[STABLE]      Tôi tên là
+[CORRECTED]   Tôi tên là
+[FINAL]       Tôi tên là.
+[TRANSLATION] I name is.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56861 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54106 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51218 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51236 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51243 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51249 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51252 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51261 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=122 duration=0.60s
+[RAW ASR]     What?
+[STABLE]      What?
+
+[AUDIO]       chunk_id=013 duration=0.30s
+[RAW ASR]     what
+[STABLE]      what
+
+[AUDIO]       chunk_id=123 duration=1.50s
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+
+[AUDIO]       chunk_id=124 duration=1.50s (FINAL)
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+[CORRECTED]   What are you?
+[FINAL]       What are you?
+
+[AUDIO]       chunk_id=014 duration=2.00s
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+
+[AUDIO]       chunk_id=015 duration=2.00s (FINAL)
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+[CORRECTED]   What are you?
+[FINAL]       What are you?
+[TRANSLATION] Anh là ai?
+[TRANSLATION] Anh là ai?
+INFO:     127.0.0.1:51265 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=125 duration=1.40s
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+INFO:     127.0.0.1:51269 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=126 duration=1.40s (FINAL)
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+[CORRECTED]   What do you do?
+[FINAL]       What do you do?
+[TRANSLATION] What do you do?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=016 duration=2.30s
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+
+[AUDIO]       chunk_id=017 duration=2.30s (FINAL)
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+[CORRECTED]   What do you do?
+[FINAL]       What do you do?
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+[TRANSLATION] What do you do?
+INFO:     127.0.0.1:51271 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=127 duration=2.80s
+[RAW ASR]     À, khung chương tinh dựng
+[STABLE]      À, khung chương tinh dựng
+INFO:     127.0.0.1:51274 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=018 duration=3.50s
+[RAW ASR]     Khung chương tin dư kiện
+[STABLE]      Khung chương tin dư kiện
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=019 duration=3.50s (FINAL)
+[RAW ASR]     Khung chương tin dư kiện
+[STABLE]      Khung chương tin dư kiện
+[CORRECTED]   Khung chương tin dư kiện
+[FINAL]       Khung chương tin dư kiện.
+
+[AUDIO]       chunk_id=128 duration=4.50s
+[RAW ASR]     À, khung chân tin dư kiện
+[STABLE]      À, khung chân tin dư kiện
+[TRANSLATION] The box of information.
+
+[AUDIO]       chunk_id=129 duration=4.50s (FINAL)
+[RAW ASR]     À, khung chân tin dư kiện
+[STABLE]      À, khung chân tin dư kiện
+[CORRECTED]   À, khung chân tin dư kiện
+[FINAL]       À, khung chân tin dư kiện.
+[TRANSLATION] Oh, the newsstand was a little redundant.
+INFO:     127.0.0.1:51277 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61226 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61557 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60080 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57703 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63091 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63095 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49565 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49570 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53161 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51751 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64425 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62964 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58173 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58174 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61000 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60181 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60183 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60184 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65333 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65336 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60247 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62291 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62293 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=130 duration=4.50s
+[RAW ASR]     Khung chương trình dư kiện
+[STABLE]      Khung chương trình dư kiện
+
+[AUDIO]       chunk_id=020 duration=2.70s
+[RAW ASR]     Cùng trưởng trên dư kiến
+[STABLE]      Cùng trưởng trên dư kiến
+
+[AUDIO]       chunk_id=131 duration=4.50s (FINAL)
+[RAW ASR]     Khung chương trình dư kiện
+[STABLE]      Khung chương trình dư kiện
+[CORRECTED]   Khung chương trình dư kiện
+[FINAL]       Khung chương trình dư kiện.
+
+[AUDIO]       chunk_id=021 duration=2.70s (FINAL)
+[RAW ASR]     Cùng trưởng trên dư kiến
+[STABLE]      Cùng trưởng trên dư kiến
+[CORRECTED]   Cùng trưởng trên dư kiến
+[FINAL]       Cùng trưởng trên dư kiến.
+[TRANSLATION] Open the window.
+[TRANSLATION] Same growth over expected.
+INFO:     127.0.0.1:62300 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62306 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50108 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50112 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50115 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57158 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57165 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57176 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57181 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=132 duration=2.10s
+[RAW ASR]     Khúng chương trinh
+[STABLE]      Khúng chương trinh
+
+[AUDIO]       chunk_id=022 duration=1.90s
+[RAW ASR]     Khúng chướng trinh dư tiện
+[STABLE]      Khúng chướng trinh dư tiện
+
+[AUDIO]       chunk_id=133 duration=3.70s
+[RAW ASR]     Khúng chương trinh dư tiền
+[STABLE]      Khúng chương trinh dư tiền
+
+[AUDIO]       chunk_id=023 duration=1.90s (FINAL)
+[RAW ASR]     Khúng chướng trinh dư tiện
+[STABLE]      Khúng chướng trinh dư tiện
+[CORRECTED]   Khúng chướng trinh dư tiện
+[FINAL]       Khúng chướng trinh dư tiện.
+[TRANSLATION] It's an extra virgin.
+
+[AUDIO]       chunk_id=134 duration=3.70s (FINAL)
+[RAW ASR]     Khúng chướng trinh dư tiền
+[STABLE]      Khúng chương trinh Khúng chướng trinh dư tiền
+[CORRECTED]   Khúng chương trinh Khúng chướng trinh dư tiền
+[FINAL]       Khúng chương trinh Khúng chướng trinh dư tiền.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59900 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] The only chapter of the Virgin Kuncupian is a waste of money.
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=135 duration=2.30s
+[RAW ASR]     Hiểu ba dặn ngay khi nổi.
+[STABLE]      Hiểu ba dặn ngay khi nổi.
+
+[AUDIO]       chunk_id=136 duration=2.30s (FINAL)
+[RAW ASR]     Hiểu ba dặn ngay khi nổi.
+[STABLE]      Hiểu ba dặn ngay khi nổi.
+[CORRECTED]   Hiểu ba dặn ngay khi nổi.
+[FINAL]       Hiểu ba dặn ngay khi nổi.
+
+[AUDIO]       chunk_id=024 duration=3.20s
+[RAW ASR]     Hiểu ba dặn ngay khi nổi.
+[STABLE]      Hiểu ba dặn ngay khi nổi.
+
+[AUDIO]       chunk_id=025 duration=3.20s (FINAL)
+[RAW ASR]     Hiểu ba dặn ngay khi nổi.
+[STABLE]      Hiểu ba dặn ngay khi nổi.
+[CORRECTED]   Hiểu ba dặn ngay khi nổi.
+[FINAL]       Hiểu ba dặn ngay khi nổi.
+[TRANSLATION] I'll get you as soon as I get there.
+[TRANSLATION] I'll get you as soon as I get there.
+INFO:     127.0.0.1:59901 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59905 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=026 duration=1.50s
+[RAW ASR]     Hiểu bài rằng ngày khi ra
+[STABLE]      Hiểu bài rằng ngày khi ra
+
+[AUDIO]       chunk_id=137 duration=2.40s
+[RAW ASR]     Hiểu ba giang ngay khi giang viến nổi
+[STABLE]      Hiểu ba giang ngay khi giang viến nổi
+
+[AUDIO]       chunk_id=138 duration=2.40s (FINAL)
+[RAW ASR]     Hiểu ba giang ngay khi giang viến nổi.
+[STABLE]      Hiểu ba giang ngay khi giang viến nổi.
+[CORRECTED]   Hiểu ba giang ngay khi giang viến nổi.
+[FINAL]       Hiểu ba giang ngay khi giang viến nổi.
+
+[AUDIO]       chunk_id=027 duration=4.10s
+[RAW ASR]     Hiểu ba giang ngay khi giang viến nổi
+[STABLE]      Hiểu ba giang ngay khi giang viến nổi
+
+[AUDIO]       chunk_id=028 duration=4.10s (FINAL)
+[RAW ASR]     Hiểu ba giang ngay khi giang viến nổi
+[STABLE]      Hiểu ba giang ngay khi giang viến nổi
+[CORRECTED]   Hiểu ba giang ngay khi giang viến nổi
+[FINAL]       Hiểu ba giang ngay khi giang viến nổi.
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59906 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] Understood as soon as he can.
+[TRANSLATION] Understood as soon as he can.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59912 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59917 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=029 duration=0.90s
+[RAW ASR]     Hiểu bài giá
+[STABLE]      Hiểu bài giá
+
+[AUDIO]       chunk_id=139 duration=2.40s
+[RAW ASR]     Hữu bái giang, ngay khi giang
+[STABLE]      Hữu bái giang, ngay khi giang
+
+[AUDIO]       chunk_id=030 duration=2.60s
+[RAW ASR]     Hiểu bài giang ngay khi giang viến nổi
+[STABLE]      Hiểu bài giang ngay khi giang viến nổi
+INFO:     127.0.0.1:59919 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=140 duration=4.10s
+[RAW ASR]     Hiểu bái giang ngay khi giang viến nổi
+[STABLE]      Hiểu bái giang ngay khi giang viến nổi
+
+[AUDIO]       chunk_id=031 duration=2.60s (FINAL)
+[RAW ASR]     Hiểu bài giang ngay khi giang viến nổi.
+[STABLE]      Hiểu bài giang ngay khi giang viến nổi.
+[CORRECTED]   Hiểu bài giang ngay khi giang viến nổi.
+[FINAL]       Hiểu bài giang ngay khi giang viến nổi.
+
+[AUDIO]       chunk_id=141 duration=4.10s (FINAL)
+[RAW ASR]     Hiểu bái giang ngay khi giang viến nổi.
+[STABLE]      Hiểu bái giang ngay khi giang viến nổi.
+[CORRECTED]   Hiểu bái giang ngay khi giang viến nổi.
+[FINAL]       Hiểu bái giang ngay khi giang viến nổi.
+[TRANSLATION] Learn the game as soon as it's up.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+[TRANSLATION] I'll get you the right answer as soon as I get there.
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=032 duration=1.50s
+[RAW ASR]     phụ đê sóng
+[STABLE]      phụ đê sóng
+INFO:     127.0.0.1:59920 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=142 duration=2.40s
+[RAW ASR]     Phú đê sóng ngừ
+[STABLE]      Phú đê sóng ngừ
+
+[AUDIO]       chunk_id=033 duration=3.20s
+[RAW ASR]     Phú đê sóng ngự
+[STABLE]      Phú đê sóng ngự
+
+[AUDIO]       chunk_id=143 duration=2.70s
+[RAW ASR]     Phú đê sóng ngừ
+[STABLE]      Phú đê sóng ngừ
+
+[AUDIO]       chunk_id=034 duration=3.20s (FINAL)
+[RAW ASR]     Phú đê sóng ngự
+[STABLE]      Phú đê sóng ngự
+[CORRECTED]   Phú đê sóng ngự
+[FINAL]       Phú đê sóng ngự.
+[TRANSLATION] "Thế nào cũng có nước.
+
+[AUDIO]       chunk_id=144 duration=2.70s (FINAL)
+[RAW ASR]     Phú đê sóng ngừ
+[STABLE]      Phú đê sóng ngừ
+[CORRECTED]   Phú đê sóng ngừ
+[FINAL]       Phú đê sóng ngừ.
+INFO:     127.0.0.1:59922 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+[TRANSLATION] - Anh ta đang ở đâu?
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=035 duration=0.30s
+[RAW ASR]     food.
+[STABLE]      food.
+INFO:     127.0.0.1:59943 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=145 duration=1.20s
+[RAW ASR]     Fooled it.
+[STABLE]      Fooled it.
+
+[AUDIO]       chunk_id=146 duration=1.20s (FINAL)
+[RAW ASR]     Fooled it.
+[STABLE]      Fooled it.
+[CORRECTED]   Fooled it.
+[FINAL]       Fooled it.
+
+[AUDIO]       chunk_id=036 duration=1.90s
+[RAW ASR]     Hold it.
+[STABLE]      Hold it.
+
+[AUDIO]       chunk_id=037 duration=1.90s (FINAL)
+[RAW ASR]     Hold it.
+[STABLE]      Hold it.
+[CORRECTED]   Hold it.
+[FINAL]       Hold it.
+[TRANSLATION] Tôi đã thử rồi.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64566 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] Giữ nó.
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55038 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55070 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55071 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55075 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55077 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55085 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49400 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58287 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60367 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60371 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60373 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60380 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60381 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60383 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60387 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60389 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=147 duration=3.90s
+[RAW ASR]     How are you? What do you do?
+[STABLE]      How are you? What do you do?
+
+[AUDIO]       chunk_id=148 duration=3.90s (FINAL)
+[RAW ASR]     How are you? What do you do?
+[STABLE]      How are you? What do you do?
+[CORRECTED]   How are you? What do you do?
+[FINAL]       How are you? What do you do?
+
+[AUDIO]       chunk_id=038 duration=4.40s
+[RAW ASR]     How are you? What do you do?
+[STABLE]      How are you? What do you do?
+
+[AUDIO]       chunk_id=039 duration=4.40s (FINAL)
+[RAW ASR]     How are you? What do you do?
+[STABLE]      How are you? What do you do?
+[CORRECTED]   How are you? What do you do?
+[FINAL]       How are you? What do you do?
+[TRANSLATION] How are you? What do you do?
+[TRANSLATION] How are you? What do you do?
+INFO:     127.0.0.1:60390 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60396 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=040 duration=2.40s
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+
+[AUDIO]       chunk_id=149 duration=2.40s
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+
+[AUDIO]       chunk_id=150 duration=2.40s (FINAL)
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+[CORRECTED]   What are you?
+[FINAL]       What are you?
+[TRANSLATION] What are you?
+
+[AUDIO]       chunk_id=041 duration=4.00s
+[RAW ASR]     What are you?
+[STABLE]      What are you?
+INFO:     127.0.0.1:65217 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=042 duration=6.20s
+[RAW ASR]     What are you? How are you?
+[STABLE]      What are you? How are you?
+
+[AUDIO]       chunk_id=043 duration=6.20s (FINAL)
+[RAW ASR]     What are you? How are you?
+[STABLE]      What are you? How are you?
+[CORRECTED]   What are you? How are you?
+[FINAL]       What are you? How are you?
+[TRANSLATION] What are you? How are you?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65222 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65223 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=151 duration=3.80s
+[RAW ASR]     Hầu hỏi gió, hù cô dịch, hù cô dịch
+[STABLE]      Hầu hỏi gió, hù cô dịch, hù cô dịch
+INFO:     127.0.0.1:49451 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=152 duration=3.80s (FINAL)
+[RAW ASR]     Hậu hỏi gió, hữu cô dịch
+[STABLE]      Hậu hỏi gió, hữu cô dịch
+[CORRECTED]   Hậu hỏi gió, hữu cô dịch
+[FINAL]       Hậu hỏi gió, hữu cô dịch.
+[TRANSLATION] Back of the day, she's a real lady.
+INFO:     127.0.0.1:49454 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=044 duration=4.90s
+[RAW ASR]     Hữu cố dịch
+[STABLE]      Hữu cố dịch
+
+[AUDIO]       chunk_id=153 duration=1.90s
+[RAW ASR]     Google
+[STABLE]      Google
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=045 duration=7.20s (FINAL)
+[RAW ASR]     Hú gó dịch
+[STABLE]      Hú gó dịch
+[CORRECTED]   Hú gó dịch
+[FINAL]       Hú gó dịch.
+INFO:     127.0.0.1:49461 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=154 duration=5.00s (FINAL)
+[RAW ASR]     Cú gói dịch.
+[STABLE]      Cú gói dịch.
+[CORRECTED]   Cú gói dịch.
+[FINAL]       Cú gói dịch.
+[TRANSLATION] The flux.
+[TRANSLATION] The bag of translation.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54617 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54618 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=155 duration=5.00s
+[RAW ASR]     Ngú ngô chứ. Ngú ngô.
+[STABLE]      Ngú ngô chứ. Ngú ngô.
+
+[AUDIO]       chunk_id=156 duration=5.00s (FINAL)
+[RAW ASR]     Ngủ ngô chứ. Ngủ ngô.
+[STABLE]      Ngủ ngô chứ. Ngủ ngô.
+[CORRECTED]   Ngủ ngô chứ. Ngủ ngô.
+[FINAL]       Ngủ ngô chứ. Ngủ ngô.
+[TRANSLATION] - Ngủ ngon đi. Sleep maize.
+INFO:     127.0.0.1:54628 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52988 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=157 duration=2.00s
+[RAW ASR]     Câu túc dư
+[STABLE]      Câu túc dư
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=158 duration=3.10s
+[RAW ASR]     Cầu túc dư liệu và giải thuật
+[STABLE]      Cầu túc dư liệu và giải thuật
+INFO:     127.0.0.1:52994 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=159 duration=3.40s
+[RAW ASR]     Cầu túc dư liệu và giải thuật
+[STABLE]      Cầu túc dư liệu và giải thuật
+
+[AUDIO]       chunk_id=160 duration=3.70s
+[RAW ASR]     Cầu túc dư liệu và giải thuật
+[STABLE]      Cầu túc dư liệu và giải thuật
+
+[AUDIO]       chunk_id=161 duration=3.70s (FINAL)
+[RAW ASR]     Cầu túc dư liệu và giải thuật
+[STABLE]      Cầu túc dư liệu và giải thuật
+[CORRECTED]   Cầu túc dư liệu và giải thuật
+[FINAL]       Cầu túc dư liệu và giải thuật.
+INFO:     127.0.0.1:52999 - "GET /health HTTP/1.1" 200 OK
+[TRANSLATION] The data and the algorithm.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53002 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50653 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53802 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58778 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58780 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50537 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50540 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61877 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61880 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=162 duration=1.50s
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+INFO:     127.0.0.1:61882 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=163 duration=1.50s (FINAL)
+[RAW ASR]     What do you do?
+[STABLE]      What do you do?
+[CORRECTED]   What do you do?
+[FINAL]       What do you do?
+[TRANSLATION] What do you do?
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61889 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61891 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61902 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61906 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61907 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53179 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53181 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56115 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=164 duration=2.40s
+[RAW ASR]     How are you?
+[STABLE]      How are you?
+
+[AUDIO]       chunk_id=165 duration=2.40s (FINAL)
+[RAW ASR]     How are you?
+[STABLE]      How are you?
+[CORRECTED]   How are you?
+[FINAL]       How are you?
+[TRANSLATION] How are you?
+INFO:     127.0.0.1:56118 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56125 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56134 - "GET /health HTTP/1.1" 200 OK
+
+[AUDIO]       chunk_id=166 duration=0.90s
+[RAW ASR]     Oh, God.
+[STABLE]      Oh, God.
+
+[AUDIO]       chunk_id=167 duration=0.90s (FINAL)
+[RAW ASR]     Oh, God.
+[STABLE]      Oh, God.
+[CORRECTED]   Oh, God.
+[FINAL]       Oh, God.
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+[TRANSLATION] Ôi Chúa ơi.
+INFO:     127.0.0.1:56139 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56142 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56146 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56152 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56154 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56164 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56174 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56175 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56179 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63894 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63899 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63908 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56655 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56657 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56658 - "GET /health HTTP/1.1" 200 OK
+INFO:     54.175.153.196:0 - "POST /v1/transcribe HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57211 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57213 - "GET /health HTTP/1.1" 200 OK

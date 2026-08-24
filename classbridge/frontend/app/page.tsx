@@ -463,7 +463,9 @@ export default function Home() {
       translationAbortRef.current = controller;
 
       try {
-        const response = await fetch("/api/translate", {
+        const aiBase = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
+        const translateUrl = aiBase ? `${aiBase.replace(/\/+$/, "")}/v1/translate` : "/api/translate";
+        const response = await fetch(translateUrl, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
@@ -526,7 +528,9 @@ export default function Home() {
             const audioProfile = audioSourceRef.current === "tab" ? "music" : "hybrid";
             form.append("audio_profile", audioProfile);
             form.append("context", context);
-            const response = await fetch("/api/transcribe", {
+            const aiBase = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
+            const transcribeUrl = aiBase ? `${aiBase.replace(/\/+$/, "")}/v1/transcribe` : "/api/transcribe";
+            const response = await fetch(transcribeUrl, {
               method: "POST",
               body: form,
               signal: controller.signal,

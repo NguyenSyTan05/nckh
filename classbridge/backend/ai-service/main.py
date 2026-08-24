@@ -921,11 +921,23 @@ def transcribe_file(
         else WHISPER_BEAM_SIZE
     )
 
-    # Đặt ngưỡng thời lượng phát âm tối thiểu >= 100ms để triệt tiêu tiếng thở và tiếng click mic
+    # Cấu hình ngưỡng âm lượng và độ nhạy VAD
     min_speech_ms = 100
     min_silence_ms = 250
     speech_pad = 300
-    # Whisper luôn chạy với VAD filter bật 100% để khi im lặng không sinh ra bất kỳ chữ nào
+
+    # Khi streaming rolling window, tắt vad_filter bên trong transcribe để không bị nuốt phụ âm đầu/cuối của tiếng Việt
+    use_vad = False if rolling_window else True
+    
+    # Prompt định hướng âm điệu tiếng Việt tự nhiên và thuật ngữ CNTT
+    prompt_text = context if context else (
+        "Xin chào các bạn, hôm nay chúng ta học về công nghệ thông tin, lập trình, hệ thống và phần mềm."
+        if selected_language == "vi"
+        else "Hello everyone, today we study computer science, software engineering, algorithms, and systems."
+        if selected_language == "en"
+        else "Xin chào các bạn. Hello everyone, welcome to class."
+    )
+
     segments, info = model.transcribe(
         audio_source,
         language=selected_language,
@@ -933,19 +945,20 @@ def transcribe_file(
         best_of=1 if not accurate else 2,
         patience=1.0,
         temperature=0.0,
-        repetition_penalty=1.0,
+        repetition_penalty=1.05,
         no_repeat_ngram_size=0,
         without_timestamps=True,
         max_new_tokens=max_new_tokens,
         log_prob_threshold=log_probability_threshold,
         no_speech_threshold=no_speech_threshold,
-        vad_filter=True,
+        vad_filter=use_vad,
         vad_parameters={
             "threshold": vad_threshold,
             "min_speech_duration_ms": min_speech_ms,
             "min_silence_duration_ms": min_silence_ms,
             "speech_pad_ms": speech_pad,
-        },
+        } if use_vad else None,
+        initial_prompt=prompt_text,
         condition_on_previous_text=False,
     )
     detected = getattr(info, "language", None) or selected_language or "vi"
