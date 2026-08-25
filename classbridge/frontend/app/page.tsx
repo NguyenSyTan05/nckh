@@ -86,13 +86,23 @@ const SOFT_LINE_WORDS = 80;
 const STREAM_CONNECT_TIMEOUT_MS = 4_000;
 const STREAM_PING_INTERVAL_MS = 15_000;
 
+function getAiBaseUrl(): string {
+  if (typeof window !== "undefined") {
+    const host = window.location.hostname;
+    if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0" || host.startsWith("192.168.") || host.startsWith("10.") || host.startsWith("172.")) {
+      return `http://${host}:8000`;
+    }
+  }
+  const configured = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
+  if (configured) return configured.replace(/\/+$/, "");
+  return "";
+}
+
 function buildAiWebSocketUrl(pathname: string) {
-  const configuredBase = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
-  const url = configuredBase
-    ? new URL(configuredBase, window.location.href)
-    : new URL(window.location.href);
+  const base = getAiBaseUrl();
+  const url = base ? new URL(base, window.location.href) : new URL(window.location.href);
   url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
-  if (!configuredBase) url.port = "8000";
+  if (!base) url.port = "8000";
   url.pathname = pathname.startsWith("/") ? pathname : `/${pathname}`;
   url.search = "";
   url.hash = "";
@@ -463,8 +473,8 @@ export default function Home() {
       translationAbortRef.current = controller;
 
       try {
-        const aiBase = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
-        const translateUrl = aiBase ? `${aiBase.replace(/\/+$/, "")}/v1/translate` : "/api/translate";
+        const base = getAiBaseUrl();
+        const translateUrl = base ? `${base}/v1/translate` : "/api/translate";
         const response = await fetch(translateUrl, {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -528,8 +538,8 @@ export default function Home() {
             const audioProfile = audioSourceRef.current === "tab" ? "music" : "hybrid";
             form.append("audio_profile", audioProfile);
             form.append("context", context);
-            const aiBase = process.env.NEXT_PUBLIC_AI_SERVICE_URL?.trim();
-            const transcribeUrl = aiBase ? `${aiBase.replace(/\/+$/, "")}/v1/transcribe` : "/api/transcribe";
+            const base = getAiBaseUrl();
+            const transcribeUrl = base ? `${base}/v1/transcribe` : "/api/transcribe";
             const response = await fetch(transcribeUrl, {
               method: "POST",
               body: form,
