@@ -116,9 +116,10 @@ function Start-FullApp {
         }
       }
 
-      Write-Host "  -> Dang khoi dong AI Service (Port 8000)..." -ForegroundColor Yellow
+      Write-Host "  -> Dang khoi dong AI Service (Port 8000 - Kien Truc 2-Module)..." -ForegroundColor Yellow
+      $serviceScript = Join-Path $aiRoot "main.py"
       $aiProcess = Start-Process -FilePath $python `
-        -ArgumentList @("-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000") `
+        -ArgumentList @("`"$serviceScript`"") `
         -WorkingDirectory $aiRoot `
         -RedirectStandardOutput (Join-Path $aiRoot "runtime-supervised-ai.out.log") `
         -RedirectStandardError (Join-Path $aiRoot "runtime-supervised-ai.err.log") `
@@ -192,9 +193,9 @@ function Start-FullApp {
       Write-Host "  [OK] Web App da san sang!" -ForegroundColor Green
 
       Write-Host "`n=========================================================================" -ForegroundColor Cyan
-      Write-Host " [SUCCESS] ClassBridge AI da hoat dong thanh cong!" -ForegroundColor Green
+      Write-Host " [SUCCESS] ClassBridge AI (2-MODULE DUAL-SPECIALIST) da hoat dong thanh cong!" -ForegroundColor Green
       Write-Host "   Web App: http://localhost:3000" -ForegroundColor Cyan
-      Write-Host "   AI Service: http://localhost:8000" -ForegroundColor Cyan
+      Write-Host "   2-Module AI Service: http://localhost:8000" -ForegroundColor Cyan
       Write-Host " (Nhan Ctrl+C de dung he thong)" -ForegroundColor Gray
       Write-Host "=========================================================================`n" -ForegroundColor Cyan
 
