@@ -56,15 +56,18 @@ class SpeechSeq2SeqCollator:
         import torch  # type: ignore[import]
         inputs = [{"input_features": item["input_features"]} for item in features]
         batch = self.processor.feature_extractor.pad(inputs, return_tensors="pt")
-        labels = [{"input_ids": item["labels"]} for item in features]
+        labels = [{"input_ids": item["labels"][:448]} for item in features]
         labels_batch = self.processor.tokenizer.pad(labels, return_tensors="pt")
         label_ids = labels_batch["input_ids"].masked_fill(
             labels_batch.attention_mask.ne(1), -100
         )
         if (label_ids[:, 0] == self.processor.tokenizer.bos_token_id).all():
             label_ids = label_ids[:, 1:]
+        if label_ids.shape[1] > 448:
+            label_ids = label_ids[:, :448]
         batch["labels"] = label_ids
         return batch
+
 
 
 def parse_args() -> argparse.Namespace:
@@ -386,8 +389,13 @@ def main() -> None:
         input_features = feature_extractor(
             samples, sampling_rate=sr
         ).input_features[0]
-        labels = tokenizer(str(example["text"]).strip()).input_ids
-        return {"input_features": input_features, "labels": labels}
+        tokenized_labels = tokenizer(
+            str(example["text"]).strip(), truncation=True, max_length=448
+        ).input_ids
+        if len(tokenized_labels) > 448:
+            tokenized_labels = tokenized_labels[:448]
+        return {"input_features": input_features, "labels": tokenized_labels}
+
 
     train_columns = raw["train"].column_names
     prepared_train = raw["train"].map(

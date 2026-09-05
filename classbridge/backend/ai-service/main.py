@@ -585,29 +585,8 @@ def normalize_vietnamese_text(text: str) -> str:
     return result
 
 
-# Danh sách các mẫu Hallucination YouTube / Whisper spam phổ biến
-YOUTUBE_HALLUCINATION_PATTERNS = [
-    re.compile(
-        r"(?:\|\s*)?(?:Hãy\s+)?(?:like\s+và\s+)?(?:subscribe|subtitles\s+by|thanks?\s+for\s+watching|đăng\s+ký\s+kênh|ủng\s+hộ\s+kênh|bấm\s+chuông\s+theo\s+dõi|chia\s+sẻ\s+video|theo\s+dõi\s+kênh)(?:[\s\w\d_]*(?:Ghiền\s+Mì\s+Gõ|kênh|video|hấp\s+dẫn|tiếp\s+theo|bên\s+dưới|nhé|nha|ạ))?[.,!?]*",
-        flags=re.IGNORECASE,
-    ),
-    re.compile(
-        r"(?:\|\s*)?Để\s+không\s+bỏ\s+lỡ\s+(?:những\s+)?(?:video|tập|phim|nội\s+dung)[\s\w\d_]*(?:hấp\s+dẫn|tiếp\s+theo|mới\s+nhất)?[.,!?]*",
-        flags=re.IGNORECASE,
-    ),
-    re.compile(
-        r"(?:\|\s*)?(?:Cảm\s+ơn|Chúc)\s+(?:các\s+)?(?:bạn|quý\s+vị|mọi\s+người)[\s\w\d_]*(?:theo\s+dõi|xem|lắng\s+nghe|đón\s+bảo\s+vệ|hẹn\s+gặp\s+lại|tạm\s+biệt)[\s\w\d_]*[.,!?]*",
-        flags=re.IGNORECASE,
-    ),
-    re.compile(
-        r"(?:phim\s+sương|học\s+vệ\s+luật|quay\s+man|đoại\s+đất|bác\s+sân|quét\s+trong\s+thái|đôi\s+vào\s+cao\s+đường|đón\s+bảo\s+vệ\s+hội|cảm\s+thắng\s+và\s+tạm\s+biệt)",
-        flags=re.IGNORECASE,
-    ),
-    re.compile(
-        r"\b(?:é\s+bem\s+aí|é\s+verdade\s+aí|todos\s+são|você|não|obrigado|de\s+ver\s+ir\s+aí|muito\s+obrigado|está\s+bem|até\s+logo|daí)\b",
-        flags=re.IGNORECASE,
-    ),
-]
+# Đã xóa sạch toàn bộ các mẫu câu cố định
+YOUTUBE_HALLUCINATION_PATTERNS: list[re.Pattern] = []
 
 
 # Bộ lọc quét và xóa TOÀN BỘ ký tự ngoại lai (chữ Ấn Độ/Tamil như கொண்டுங்களை, chữ Trung 是, chữ Thái, chữ Nga, chữ Ả Rập...) do Whisper ảo giác
@@ -658,20 +637,8 @@ FILLER_WORDS = {
     "ừ", "ừm", "ờ", "hở", "hả", "ủa", "nè", "à", "ê", "dạ", "haizz"
 }
 
-SILENCE_ARTIFACT_PHRASES = {
-    "you", "thank you", "thanks", "thank you so much", "thank you very much",
-    "thanks for watching", "thanks for listening", "thank you for watching", "thank you for listening",
-    "thank you all", "thanks a lot", "thank you for your time", "thank you for attention",
-    "bye", "bye bye", "goodbye", "see you", "see you later", "see you soon", "see you next time",
-    "subtitles by", "please subscribe", "like and subscribe", "subscribe", "don't forget to subscribe",
-    "translated by", "closed captions", "captioned by",
-    "have a good day", "have a great day", "have a nice day",
-    "apa yang kamu lakukan", "terima kasih",
-    "thời sự", "bản tin", "chào tạm biệt", "hẹn gặp lại",
-    "cảm ơn các bạn đã theo dõi", "cảm ơn các bạn đã lắng nghe", "cảm ơn mọi người đã theo dõi",
-    "cảm ơn quý vị và các bạn", "cảm ơn đã xem", "chúc các bạn một ngày tốt lành",
-    "đăng ký kênh", "nhấn chuông theo dõi", "chia sẻ video", "ủng hộ kênh",
-}
+# Đã xóa toàn bộ danh sách từ/câu mẫu cố định để trả về 100% lời nói gốc của người dùng
+SILENCE_ARTIFACT_PHRASES: set[str] = set()
 
 VALID_SHORT_COMMANDS = {
     "yes", "no", "ok", "okay", "oke", "stop", "go", "done", "start", "next", "right", "wrong",
@@ -697,39 +664,13 @@ _RE_BRACKETED_ACOUSTIC = re.compile(
 
 
 def is_speech_hallucination(text: str) -> bool:
-    """Xác thực transcript an toàn, bảo tồn nguyên vẹn tiếng Việt xen lẫn thuật ngữ tiếng Anh."""
+    """Xác thực transcript: Bảo tồn 100% lời nói gốc của người dùng mà không gán ép từ điển."""
     if not text or not text.strip():
         return True
 
-    # 1. Chuẩn hóa: chữ thường, loại bỏ toàn bộ dấu câu và khoảng trắng dư thừa
-    normalized = re.sub(r"[^\w\s]+", "", text.casefold()).strip()
-    if not normalized:
-        return True
-
-    words = normalized.split()
-    if not words:
-        return True
-
-    # 2. Câu lệnh ngắn hợp lệ (Yes, No, OK, Có, Không, Đúng, Sai...) -> Hợp lệ
-    if normalized in VALID_SHORT_COMMANDS:
-        return False
-
-    # 3. Ký hiệu âm thanh phi ngôn ngữ (chỉ chặn khi toàn bộ câu là nhãn âm thanh)
-    if normalized in ACOUSTIC_HALLUCINATION_WORDS:
-        return True
-
-    # 4. Cụm từ ảo giác khi im lặng hoặc kết thúc video (YouTube / Outro)
-    if normalized in SILENCE_ARTIFACT_PHRASES:
-        return True
-    if any(pat.search(text) for pat in YOUTUBE_HALLUCINATION_PATTERNS):
-        return True
-
-    # 5. Toàn bộ câu CHỈ gồm các từ đệm/filler vô nghĩa
-    if len(words) <= 3 and all(w in FILLER_WORDS for w in words):
-        return True
-
-    # 6. Lặp từ vô nghĩa 3 lần liên tiếp
-    if len(words) >= 3 and len(set(words)) == 1:
+    # Chỉ loại bỏ khi toàn bộ câu là nhãn âm thanh đóng ngoặc vuông như [music], [applause]
+    stripped = text.strip()
+    if _RE_BRACKETED_ACOUSTIC.fullmatch(stripped):
         return True
 
     return False
@@ -761,9 +702,6 @@ def clean_recognized_text(text: str) -> str:
     cleaned = _RE_WORD_REP.sub(r"\1", cleaned)
     cleaned = normalize_vietnamese_text(cleaned)
 
-    # Xóa triệt để các câu hallucination spam YouTube
-    for pat in YOUTUBE_HALLUCINATION_PATTERNS:
-        cleaned = pat.sub("", cleaned)
     cleaned = re.sub(r"\s*\|\s*", " ", cleaned)
     cleaned = _RE_MULTI_SPACES.sub(" ", cleaned).strip()
 
@@ -929,14 +867,8 @@ def transcribe_file(
     # Khi streaming rolling window, tắt vad_filter bên trong transcribe để không bị nuốt phụ âm đầu/cuối của tiếng Việt
     use_vad = False if rolling_window else True
     
-    # Prompt định hướng âm điệu tiếng Việt tự nhiên và thuật ngữ CNTT
-    prompt_text = context if context else (
-        "Xin chào các bạn, hôm nay chúng ta học về công nghệ thông tin, lập trình, hệ thống và phần mềm."
-        if selected_language == "vi"
-        else "Hello everyone, today we study computer science, software engineering, algorithms, and systems."
-        if selected_language == "en"
-        else "Xin chào các bạn. Hello everyone, welcome to class."
-    )
+    # KHÔNG DÙNG BẤT KỲ CÂU MẪU CỐ ĐỊNH NÀO - Bảo tồn 100% lời nói gốc từ micro
+    prompt_text = context.strip() if (context and context.strip()) else None
 
     segments, info = model.transcribe(
         audio_source,

@@ -1,0 +1,4 @@
+{"audio": "D:\\TailieuNPKH\\classbridge\\backend\\data\\samples\\sample_en_01.wav", "text": "Welcome to today's lecture on artificial intelligence and machine learning.", "language": "en", "speaker_id": "speaker_en_01", "accent": "en_us"}
+{"audio": "D:\\TailieuNPKH\\classbridge\\backend\\data\\samples\\sample_en_02.wav", "text": "Software architecture and distributed cloud infrastructure principles.", "language": "en", "speaker_id": "speaker_en_01", "accent": "en_us"}
+{"audio": "data/samples/sample_en_03.wav", "text": "Software testing helps improve overall software quality and system reliability.", "language": "en", "speaker_id": "speaker_en_02", "accent": "en_uk"}
+{"audio": "data/samples/sample_en_04.wav", "text": "Data science algorithms and neural network optimization techniques.", "language": "en", "speaker_id": "speaker_en_02", "accent": "en_uk"}

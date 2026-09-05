@@ -69,9 +69,19 @@ ai_backend/04_DATASETS_TAM_THOI/audio/
 .env.test.local
 .env.production.local
 
+# Exclude Module 2 folder as requested
+DoAN2module/
+
+# Temporary & Local Tools
+.tools/
+bvv
+*.log
+*.pid
+
 # IDE & OS
 .git_tool/
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+
