@@ -43,17 +43,21 @@ out/
 cache/
 .cache/
 
-# Large Model Weights (> 100MB exceed GitHub Limits)
-*.bin
-*.safetensors
-*.pt
-*.pth
+# Large Raw Model Binaries (> 100MB exceed GitHub Limits)
 *.onnx
 *.tar.gz
 *.zip
 *.parquet
+**/model.bin
+**/model.safetensors
+**/optimizer.pt
+**/checkpoint-*/
 
-# Heavy Audio Datasets & Model Cache (Keep manifests and code only)
+# Keep Trained LoRA Adapters (< 15MB) & Configs Tracked in Git!
+!**/adapter_model.safetensors
+!**/training_args.bin
+
+# Heavy Audio Datasets & Model Cache (Keep manifests, LoRA adapters, and code)
 .models/
 classbridge/backend/ai-service/.models/
 classbridge/training/data/downloads/
@@ -61,10 +65,7 @@ classbridge/training/data/vivos/
 classbridge/training/ViMD_Dataset/
 classbridge/backend/data/samples/
 classbridge/training/outputs/
-classbridge/backend/ai-service/Module_Train/**/output_model_*
-classbridge/backend/ai-service/Module_Train/**/model_*_ct2
-classbridge/training/Module_Train/**/output_model_*
-classbridge/training/Module_Train/**/model_*_ct2
+classbridge/training/Module_Train/**/output_model_*_merged/
 ai_backend/03_MODEL_CHECKPOINTS/
 ai_backend/04_DATASETS_TAM_THOI/audio/
 
@@ -78,18 +79,11 @@ ai_backend/04_DATASETS_TAM_THOI/audio/
 # Exclude Module 2 folder as requested
 DoAN2module/
 
-# Temporary & Local Tools / Generator Scripts
+# Temporary & Local Tools
 .tools/
 bvv
 *.log
 *.pid
-classbridge/backend/ai-service/nmt-academic-lora-balanced/checkpoint-*/
-classbridge/TaiLieuF/*.py
-classbridge/TaiLieuF/*.ps1
-classbridge/TaiLieuF/tailieu_raw_mermaid_spec.md
-classbridge/TaiLieuF/02_HinhAnh_SoDo_PNG/diagrams_render_spec.json
-classbridge/docs/generate_word_doc.py
-classbridge/ClassBridge_*.docx
 
 # IDE & OS
 .git_tool/
