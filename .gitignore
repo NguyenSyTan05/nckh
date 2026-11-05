@@ -78,11 +78,18 @@ ai_backend/04_DATASETS_TAM_THOI/audio/
 # Exclude Module 2 folder as requested
 DoAN2module/
 
-# Temporary & Local Tools
+# Temporary & Local Tools / Generator Scripts
 .tools/
 bvv
 *.log
 *.pid
+classbridge/backend/ai-service/nmt-academic-lora-balanced/checkpoint-*/
+classbridge/TaiLieuF/*.py
+classbridge/TaiLieuF/*.ps1
+classbridge/TaiLieuF/tailieu_raw_mermaid_spec.md
+classbridge/TaiLieuF/02_HinhAnh_SoDo_PNG/diagrams_render_spec.json
+classbridge/docs/generate_word_doc.py
+classbridge/ClassBridge_*.docx
 
 # IDE & OS
 .git_tool/

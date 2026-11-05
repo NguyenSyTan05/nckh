@@ -1,8 +1,0 @@
-INFO:     Started server process [26568]
-INFO:     Waiting for application startup.
-D:\TailieuNPKH\classbridge\backend\ai-service\.venv\Lib\site-packages\transformers\models\marian\tokenization_marian.py:175: UserWarning: Recommended: pip install sacremoses.
-  warnings.warn("Recommended: pip install sacremoses.")
-D:\TailieuNPKH\classbridge\backend\ai-service\.venv\Lib\site-packages\transformers\models\marian\tokenization_marian.py:175: UserWarning: Recommended: pip install sacremoses.
-  warnings.warn("Recommended: pip install sacremoses.")
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
