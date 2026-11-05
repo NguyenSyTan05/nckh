@@ -6,43 +6,33 @@
 
 ## 📂 1. CẤU TRÚC THƯ MỤC CHUẨN HÓA & PHÂN LOẠI AN TOÀN
 
-Toàn bộ hệ thống AI được tổ chức thành 4 thư mục trực quan và đánh số thứ tự dễ hiểu:
+Toàn bộ hệ thống AI được tinh gọn theo kiến trúc Unified ASR & Meta NLLB-200:
 
 ```text
-d:\TailieuNPKH\ai_backend/
+classbridge/backend/ai-service/
 │
-├── 📄 AI_CAPSTONE_HANDBOOK.md          # [CẦN GIỮ] - Sổ tay hướng dẫn & số liệu báo cáo
+├── 📄 AI_CAPSTONE_HANDBOOK.md          # Sổ tay kiến trúc & số liệu báo cáo
+├── 📄 README.md                        # Tài liệu API & cách chạy dịch vụ
+├── 📄 main.py                           # FastAPI Server (Port 8000) & WebSocket Live Streaming
+├── 📄 unified_speech_recognizer.py      # [MODULE ASR] Whisper Đa ngữ (VI/EN/Mixed) + VAD + Khử lặp
 │
-├── 📁 01_AI_SERVICE/                    # [QUAN TRỌNG - KHÔNG ĐƯỢC XÓA] - Dịch vụ AI Realtime chính
-│   ├── main.py                          # Server API chính, luồng streaming WebSocket (< 30ms)
-│   ├── modules/
-│   │   └── correction_module.py         # Bộ lọc âm vị học & Chuẩn hóa Unicode NFC
-│   ├── transcript_stabilizer.py         # Bộ ổn định chữ, chống nhảy chữ trên giao diện
-│   ├── auto_punctuation.py              # Tự động ngắt câu và thêm dấu câu
-│   ├── session_manager.py               # Quản lý phòng học & phiên kết nối
-│   └── requirements.txt
+├── 📁 04_TRANSLATION_MODULE/            # [MODULE NMT & SEMANTICS] Meta NLLB-200 Distilled 600M
+│   └── nmt_translator.py               # Dịch 2 chiều FLORES-200 & Trích xuất Semantic Embedding gom câu hỏi
 │
-├── 📁 02_TRAINING_SCRIPTS/              # [QUAN TRỌNG - KHÔNG ĐƯỢC XÓA] - Bộ mã nguồn huấn luyện
-│   ├── 01_chuan_bi_du_lieu.py           # Chia tỷ lệ vàng (60% VI : 20% Viet-EN : 10% Hàn : 10% Ấn)
-│   ├── 02_train_whisper_lora.py         # Huấn luyện Whisper LoRA Adapter trên GPU NVIDIA
-│   ├── 03_xuat_model_ct2.py             # Hợp nhất trọng số LoRA và xuất sang CTranslate2 float16
-│   ├── 04_train_dich_thuat_nmt.py       # Huấn luyện mô hình Dịch thuật EnViT5 LoRA
-│   ├── 05_ghi_am_hoc_giong_noi.py       # Thu âm giọng giảng viên trực tiếp để AI học giọng tức thì
-│   ├── 06_thu_thap_du_lieu_lop_hoc.py   # Thu thập & kiểm định chất lượng âm thanh tại lớp học DTU
-│   ├── 07_danh_gia_wer_bleu.py          # Đo đạc chỉ số lỗi WER và điểm BLEU
-│   ├── BAO_CAO_TRAINING_REPORT.md       # Báo cáo khoa học ghi nhận toàn bộ số liệu thực nghiệm
-│   └── requirements.txt
+├── 📁 Module_Train/                     # [MODULE HUẤN LUYỆN] Quy trình train độc lập giữ nguyên 100%
+│   ├── 01_chuan_bi_du_lieu_2_module.py
+│   ├── 02_train_module_vi_specialist.py
+│   ├── 03_train_module_en_specialist.py
+│   ├── 04_xuat_model_ct2_cho_2_module.py
+│   ├── 05_train_dich_thuat_envit5.py
+│   └── 06_danh_gia_so_sanh_wer_bleu.py
 │
-├── 📁 03_MODEL_CHECKPOINTS/             # [QUAN TRỌNG - KHÔNG ĐƯỢC XÓA] - Trọng số mô hình đã train xong
-│   ├── whisper-large-v3-turbo-ct2/      # Model ASR chính thức đang chạy
-│   ├── whisper-decoder-micro4-en-ct2/   # Model ASR tiếng Anh chuyên biệt (WER 6.80%)
-│   ├── whisper-custom-proportions-ct2/  # Model ASR vừa train theo tỷ lệ vàng (Loss 1.43)
-│   └── nmt-academic-lora-balanced/      # Model Dịch thuật CNTT đã train LoRA
+├── 📁 scratch/                          # Scripts kiểm thử kiến trúc & kiểm định chất lượng
+│   ├── test_dataset_routing.py
+│   ├── test_unified_architecture.py
+│   └── test_full_system.py
 │
-└── 📁 04_DATASETS_TAM_THOI/             # [CÓ THỂ XÓA KHI ĐẦY Ổ CỨNG] - Dữ liệu âm thanh thô & Manifests
-    └── manifests/                       # Danh sách đường dẫn các file audio train/val
-        ├── proportional_train_manifest.jsonl
-        └── proportional_val_manifest.jsonl
+└── 📄 requirements.txt                  # Danh mục thư viện phụ thuộc
 ```
 
 ---
@@ -61,53 +51,65 @@ d:\TailieuNPKH\ai_backend/
 
 ## 🚀 3. HƯỚNG DẪN CHẠY CÁC MODULE THEO THỨ TỰ (1 LỆNH DUY NHẤT)
 
-### 🔹 Bước 1: Khởi động Server AI Backend Realtime:
+### 🔹 Cách 1: Khởi động 1-Click Toàn bộ Hệ thống (AI Backend + Web App):
 ```powershell
-cd d:\TailieuNPKH\ai_backend\01_AI_SERVICE
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+powershell -ExecutionPolicy Bypass -File .\start-classbridge.ps1 -Mode run
+```
+*Truy cập giao diện Web phụ đề song ngữ tại:* `http://localhost:3000`
+
+---
+
+### 🔹 Cách 2: Khởi động Server AI Backend Realtime riêng (Port 8000):
+```powershell
+cd d:\TailieuNPKH\classbridge\backend\ai-service
+.\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
 ---
 
-### 🔹 Bước 2: Huấn luyện ASR Giọng nói theo tỷ lệ vàng (Pipeline chuẩn):
+### 🔹 Cách 3: Huấn luyện ASR Giọng nói 2-Module Chuyên biệt & Dịch thuật:
+
+#### 1. Huấn luyện Module 1 (Chuyên gia Tiếng Việt & CNTT):
 ```powershell
-cd d:\TailieuNPKH\ai_backend\02_TRAINING_SCRIPTS
+# Bước a: Chuẩn bị dữ liệu và tạo manifest 90% Train / 10% Val:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\01_chuan_bi_du_lieu_vi.py
 
-# 1. Tạo tập dữ liệu tỷ lệ vàng:
-python 01_chuan_bi_du_lieu.py
+# Bước b: Train LoRA trên GPU (1 epoch, batch size 4):
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\02_train_whisper_vi_lora.py --epochs 1 --batch_size 4
 
-# 2. Huấn luyện LoRA trên GPU:
-python 02_train_whisper_lora.py --train ../04_DATASETS_TAM_THOI/manifests/proportional_train_manifest.jsonl --validation ../04_DATASETS_TAM_THOI/manifests/proportional_val_manifest.jsonl --output ../03_MODEL_CHECKPOINTS/whisper-custom-lora --epochs 2 --batch-size 4 --gradient-accumulation 4
+# Bước c: Merge LoRA và xuất sang CTranslate2 Float16:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\03_xuat_model_vi_ct2.py
 
-# 3. Xuất sang CTranslate2 float16:
-python 03_xuat_model_ct2.py --base-model openai/whisper-small --adapter ../03_MODEL_CHECKPOINTS/whisper-custom-lora --merged-output ../03_MODEL_CHECKPOINTS/whisper-custom-merged --ct2-output ../03_MODEL_CHECKPOINTS/whisper-custom-proportions-ct2 --quantization float16
+# Bước d: Kiểm tra độ chính xác WER Tiếng Việt:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\kiem_tra_chuan_am_tieng_viet.py
+```
+
+#### 2. Huấn luyện Module 2 (Chuyên gia Tiếng Anh & Asian Accent):
+```powershell
+# Bước a: Chuẩn bị dữ liệu manifest Accent:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\01_chuan_bi_du_lieu_en.py
+
+# Bước b: Train LoRA Tiếng Anh Accent:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\02_train_whisper_en_accent_lora.py --epochs 1 --batch_size 4
+
+# Bước c: Xuất sang CTranslate2 Float16:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\03_xuat_model_en_ct2.py
+
+# Bước d: Kiểm tra WER Tiếng Anh:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\kiem_tra_chuan_am_tieng_anh.py
+```
+
+#### 3. Huấn luyện Module Dịch thuật Học thuật CNTT (EnViT5):
+```powershell
+# Bước a: Train LoRA EnViT5 song ngữ:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\03_TRAIN_DICH_THUAT\01_train_envit5_academic.py
+
+# Bước b: Đo đạc điểm BLEU và tốc độ dịch thuật:
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\03_TRAIN_DICH_THUAT\kiem_tra_dich_thuat_bleu.py
 ```
 
 ---
 
-### 🔹 Bước 3: Huấn luyện mô hình Dịch thuật học thuật CNTT (EnViT5):
-```powershell
-cd d:\TailieuNPKH\ai_backend\02_TRAINING_SCRIPTS
-python 04_train_dich_thuat_nmt.py
-```
-
----
-
-### 🔹 Bước 4: Thu âm giọng giảng viên trực tiếp để AI học giọng (Demo bảo vệ):
-```powershell
-cd d:\TailieuNPKH\ai_backend\02_TRAINING_SCRIPTS
-python 05_ghi_am_hoc_giong_noi.py
-```
-
----
-
-### 🔹 Bước 5: Đo đạc chỉ số WER và điểm BLEU (Số liệu báo cáo):
-```powershell
-cd d:\TailieuNPKH\ai_backend\02_TRAINING_SCRIPTS
-python 07_danh_gia_wer_bleu.py
-```
-
----
 
 ## 📊 4. BẢNG SỐ LIỆU NGHIỆM THU ĐỒ ÁN CAPSTONE
 
@@ -118,3 +120,4 @@ python 07_danh_gia_wer_bleu.py
 | **ASR Tiếng Việt chuẩn** | VIVOS 65 Speakers | **WER: 25.40%** | Nhận diện ngôn ngữ chuẩn xác 100% |
 | **Custom Proportions (Vừa train)** | 60% VI : 20% Viet-EN : 10% Hàn : 10% Ấn | **Train Loss: 1.43** | Thích nghi ngữ điệu đa dạng tại DTU |
 | **Dịch thuật Học thuật** | CNTT & DTU Curriculum | **BLEU: +8.4 điểm** | Dịch sát nghĩa thuật ngữ chuyên ngành |
+

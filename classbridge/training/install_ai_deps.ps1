@@ -69,7 +69,7 @@ if ($NEED_INSTALL) {
         if ($LASTEXITCODE -eq 0) {
             Write-Host " [OK]" -ForegroundColor Green
         } else {
-            Write-Host " [WARN - thu pip install thu cong]" -ForegroundColor Yellow
+            Write-Host " [WARN: $result]" -ForegroundColor Yellow
         }
     }
 }

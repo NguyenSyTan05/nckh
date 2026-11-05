@@ -9,7 +9,7 @@ Chức năng:
   [2] Train Giọng Nói Cá Nhân (Personalized Voice Fine-Tuner - 99%+ Accuracy)
   [3] Train Đa Giọng Vùng Miền & Tiếng Anh Quốc Tế (Multi-Accent ASR Trainer)
   [4] Train Dịch Thuật Học Thuật 2 Chiều (Academic NMT Translator Trainer)
-  [5] Đánh giá Chỉ Số Độ Chính Xác (WER & BLEU Score Benchmark)
+  [5] Kiểm Tra Model Hiện Tại (1 Luồng Unified ASR + NLLB)
   [6] AI Training Pipeline Toàn Diện (End-to-End ASR, NMT & CTranslate2 Export)
   [7] Cài Đặt Thư Viện AI (torch, transformers, peft, faster-whisper...)
   [8] Fine-Tune Whisper Nâng Cao DTU (★ Mới: LoRA r=32, Curriculum, DTU Vocab)
@@ -20,6 +20,7 @@ from __future__ import annotations
 import os
 import sys
 import time
+import subprocess
 from pathlib import Path
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -59,7 +60,7 @@ def _run_script(script_name: str, args: str = "") -> None:
     script = BASE_DIR / script_name
     if script.exists():
         cmd = f'"{sys.executable}" "{script}" {args}'.strip()
-        os.system(cmd)
+        subprocess.run(cmd, shell=True)
     else:
         print(f"❌ Không tìm thấy script: {script}")
 
@@ -141,108 +142,96 @@ def evaluate_accuracy_benchmarks() -> None:
         print("  ✅ Mẫu: BLEU = 96.50 / 100.00")
 
 
-# ── Chức năng [6]: AI Pipeline Toàn Diện ─────────────────────────────────────
+# ── Chức năng [2]: Train Chuyên Gia Tiếng Việt (Module 1) ───────────────────
 
-def run_unified_pipeline() -> None:
-    print("\n--- KÍCH HOẠT QUY TRÌNH HUẤN LUYỆN AI PIPELINE TOÀN DIỆN & XUẤT CTRANSLATE2 ---")
-    _run_script("train_ai_pipeline.py", "--mode all")
-
-
-# ── Chức năng [10]: Quick Baseline Training Mode ──────────────────────────
-
-def run_quick_training_mode() -> None:
-    """Chạy mode nhanh để test và kiểm tra baseline NMT."""
-    script = BASE_DIR / "modes" / "quick" / "quick_train.py"
+def run_vietnamese_specialist_train() -> None:
+    print("\n" + "=" * 70)
+    print("🇻🇳 [MODULE 1] HUẤN LUYỆN CHUYÊN GIA TIẾNG VIỆT (BẢO TOÀN 5 DẤU THANH)")
+    print("=" * 70)
+    script = BASE_DIR / "Module_Train" / "01_TRAIN_TIENG_VIET" / "02_train_whisper_vi_lora.py"
     if script.exists():
-        os.system(f'"{resolve_python()}" "{script}" --mode nmt')
+        smoke = input("  Chạy thử nhanh 50 steps (smoke test)? (y/n, mặc định n): ").strip().lower() == "y"
+        extra = " --smoke_test" if smoke else ""
+        subprocess.run(f'"{resolve_python()}" "{script}"{extra}', shell=True)
+        export_opt = input("\n👉 Xuất mô hình sang CTranslate2 Float16 GPU ngay? (y/n, mặc định y): ").strip().lower() or "y"
+        if export_opt == "y":
+            export_script = BASE_DIR / "Module_Train" / "01_TRAIN_TIENG_VIET" / "03_xuat_model_vi_ct2.py"
+            subprocess.run(f'"{resolve_python()}" "{export_script}"', shell=True)
     else:
         print(f"❌ Không tìm thấy script: {script}")
 
 
-# ── Chức năng [11]: Balanced Regional Training Mode ───────────────────────
+# ── Chức năng [3]: Train Chuyên Gia Tiếng Anh & Accent (Module 2) ───────────
 
-def run_balanced_training_mode() -> None:
-    """Chạy mode nâng chất lượng với dataset cân bằng theo region/accent."""
-    script = BASE_DIR / "modes" / "balanced" / "balanced_train.py"
+def run_english_accent_specialist_train() -> None:
+    print("\n" + "=" * 70)
+    print("🇬🇧 [MODULE 2] HUẤN LUYỆN CHUYÊN GIA TIẾNG ANH & GIỌNG VÙNG MIỀN")
+    print("=" * 70)
+    script = BASE_DIR / "Module_Train" / "02_TRAIN_TIENG_ANH" / "02_train_whisper_en_accent_lora.py"
     if script.exists():
-        os.system(f'"{resolve_python()}" "{script}"')
+        smoke = input("  Chạy thử nhanh 50 steps (smoke test)? (y/n, mặc định n): ").strip().lower() == "y"
+        extra = " --smoke_test" if smoke else ""
+        subprocess.run(f'"{resolve_python()}" "{script}"{extra}', shell=True)
+        export_opt = input("\n👉 Xuất mô hình sang CTranslate2 Float16 GPU ngay? (y/n, mặc định y): ").strip().lower() or "y"
+        if export_opt == "y":
+            export_script = BASE_DIR / "Module_Train" / "02_TRAIN_TIENG_ANH" / "03_xuat_model_en_ct2.py"
+            subprocess.run(f'"{resolve_python()}" "{export_script}"', shell=True)
     else:
         print(f"❌ Không tìm thấy script: {script}")
 
 
-# ── Chức năng [7]: Cài Đặt Thư Viện ──────────────────────────────────────
+# ── Chức năng [4]: Train Dịch Thuật Học Thuật EnViT5 (Module 3) ──────────────
+
+def run_translation_module_train() -> None:
+    print("\n" + "=" * 70)
+    print("🌐 [MODULE 3] HUẤN LUYỆN DỊCH THUẬT SONG NGỮ HỌC THUẬT (ENVIT5 LORA)")
+    print("=" * 70)
+    script = BASE_DIR / "Module_Train" / "03_TRAIN_DICH_THUAT" / "01_train_envit5_academic.py"
+    if script.exists():
+        subprocess.run(f'"{resolve_python()}" "{script}"', shell=True)
+    else:
+        print(f"❌ Không tìm thấy script: {script}")
+
+
+# ── Chức năng [5]: Đánh Giá Benchmark Toàn Diện ──────────────────────────────
+
+def evaluate_accuracy_benchmarks() -> None:
+    print("\n" + "=" * 70)
+    print("🚀 [TEST MODEL] KIỂM TRA MODEL HIỆN TẠI 1 LUỒNG (ASR ➜ DỊCH THUẬT)")
+    print("=" * 70)
+    script = BASE_DIR / "Module_Train" / "06_danh_gia_so_sanh_wer_bleu.py"
+    if script.exists():
+        subprocess.run(f'"{resolve_python()}" "{script}"', shell=True)
+    else:
+        print(f"❌ Không tìm thấy script: {script}")
+
+
+# ── Chức năng [6]: Train Giọng Nói Cá Nhân Hóa ──────────────────────────────
+
+def run_personal_voice_train() -> None:
+    print("\n--- KÍCH HOẠT HUẤN LUYỆN GIỌNG NÓI CÁ NHÂN ---")
+    _run_script("record_and_train_voice.py")
+
+
+# ── Chức năng [7]: Cài Đặt Thư Viện ──────────────────────────────────────────
 
 def install_ai_deps() -> None:
     """Chạy script cài đặt tất cả thư viện AI cần thiết."""
-    print("\n--- CÀI ĐẶT THƯ VIỆN AI (torch, transformers, peft, faster-whisper...) ---")
+    print("\n--- CÀI ĐẶT THƯ VIỆN AI (torch, transformers, peft, ctranslate2...) ---")
     script = BASE_DIR / "install_ai_deps.ps1"
     req_file = BASE_DIR / "requirements.txt"
     if script.exists():
-        os.system(f"powershell -ExecutionPolicy Bypass -File \"{script}\"")
+        subprocess.run(f"powershell -ExecutionPolicy Bypass -File \"{script}\"", shell=True)
     elif req_file.exists():
         print("  Đang cài đặt từ requirements.txt...")
-        os.system(f'"{sys.executable}" -m pip install -r "{req_file}"')
+        subprocess.run(f'"{sys.executable}" -m pip install -r "{req_file}"', shell=True)
     else:
         print("  Đang cài thủ công các thư viện cần thiết...")
-        pkgs = "torch torchaudio transformers peft datasets accelerate faster-whisper sounddevice soundfile jiwer sacrebleu numpy evaluate sentence-transformers scipy websockets"
-        os.system(f'"{sys.executable}" -m pip install {pkgs}')
+        pkgs = "torch torchaudio transformers peft datasets accelerate faster-whisper sounddevice soundfile jiwer sacrebleu numpy evaluate sentence-transformers scipy ctranslate2"
+        subprocess.run(f'"{sys.executable}" -m pip install {pkgs}', shell=True)
 
 
-# ── Chức năng [8]: Fine-Tune Whisper Nâng Cao DTU ──────────────────────────
-
-def run_dtu_finetune() -> None:
-    """Fine-tune Whisper với LoRA r=32, Curriculum Learning và DTU Vocab."""
-    print("\n" + "=" * 73)
-    print("  ★ FINE-TUNE WHISPER NÂNG CAO DTU (LoRA r=32 + Curriculum + DTU Vocab)")
-    print("=" * 73)
-    print("  Điều kiện:")
-    print("    1. Có file JSONL huấn luyện (với trường audio, text, language)")
-    print("    2. Có file JSONL validation (speakers khác training)")
-    print("    3. Đảm bảo đã cài transformers, peft, datasets")
-    print()
-
-    train_file = input("  📥 Đường dẫn file JSONL training: ").strip()
-    val_file = input("  📥 Đường dẫn file JSONL validation: ").strip()
-    if not train_file or not val_file:
-        print("  ⚠️  Huỷ bỏ.")
-        return
-
-    # Tạo DTU vocab trước nếu chưa có
-    vocab_file = str(BASE_DIR.parent / "data" / "dtu_vocab.json")
-    if not os.path.exists(vocab_file):
-        print("  📦 Tạo DTU vocabulary...")
-        _run_script("prepare_dtu_academic_vocab.py")
-
-    print("  Chọn mô hình Whisper:")
-    print("    [1] whisper-small  (khá cân bằng – mặc định)")
-    print("    [2] whisper-base   (nhanh hơn, ít chính xác hơn)")
-    print("    [3] whisper-medium (chính xác nhất, cần ≥ 8GB RAM)")
-    model_choice = input("  👉 Chọn (1-3, mặc định 1): ").strip() or "1"
-    model_map = {"1": "openai/whisper-small", "2": "openai/whisper-base", "3": "openai/whisper-medium"}
-    model_name = model_map.get(model_choice, "openai/whisper-small")
-
-    epochs_str = input("  🔢 Số epochs (mặc định 5): ").strip() or "5"
-    try:
-        epochs = int(epochs_str)
-    except ValueError:
-        epochs = 5
-
-    args_str = (
-        f'--train "{train_file}" '
-        f'--validation "{val_file}" '
-        f'--model {model_name} '
-        f'--epochs {epochs} '
-        f'--lora-rank 32 '
-        f'--lora-alpha 64 '
-        f'--dtu-vocab-file "{vocab_file}" '
-        f'--curriculum '
-        f'--balance-languages '
-    )
-    print(f"\n  🚀 Bắt đầu Fine-Tune: {model_name} | epochs={epochs}")
-    _run_script("finetune_whisper_lora.py", args_str)
-
-
-# ── Chức năng [9]: Semantic Question Clustering Test ────────────────────
+# ── Chức năng [8]: Semantic Question Clustering Test ────────────────────────
 
 def run_question_clustering_test() -> None:
     """Tạo dataset DTU và chạy benchmark Semantic Question Clustering."""
@@ -254,10 +243,7 @@ def run_question_clustering_test() -> None:
     print("    2. Chạy Semantic Clustering với SentenceTransformer")
     print("    3. So sánh kết quả với ground truth")
     print()
-    print("  ⚠️  Lần đầu chạy sẽ tải model ~120MB từ HuggingFace.")
-    print()
     _run_script("prepare_dtu_academic_vocab.py", "--run-test")
-
 
 
 # ── Menu Chính ────────────────────────────────────────────────────────────────
@@ -265,53 +251,44 @@ def run_question_clustering_test() -> None:
 def main_menu() -> None:
     check_environment()
     while True:
-        print("\n" + "=" * 73)
+        print("\n" + "=" * 75)
         print("   ClassBridge - MASTER AI TRAINING & ACCURACY EVALUATION MANAGER       ")
-        print("=" * 73)
+        print("   Kiến trúc: 2 Module Chuyên Biệt (Vietnamese Specialist & English Specialist)")
+        print("=" * 75)
         print("Chọn chức năng huấn luyện / đánh giá (Thư mục: classbridge/training/):")
-        print("  [1] 🎤  Nhận diện Giọng nói Trực tiếp (Nói → Ghi ra chữ EN & VI)")
-        print("  [2] 🔊  Train Giọng nói Cá nhân hóa (Thu âm trực tiếp & Fine-Tune)")
-        print("  [3] 🌐  Train Đa Giọng Vùng Miền (Tiếng Anh quốc tế & Tiếng Việt 3 miền)")
-        print("  [4] 📖  Train Dịch thuật Học thuật 2 chiều (Anh ↔ Việt chuyên ngành)")
-        print("  [5] 📊  Đánh giá Chỉ số Độ chính xác (WER & BLEU Benchmark)")
-        print("  [6] 🚀  AI Pipeline Toàn Diện (End-to-End ASR + NMT + CTranslate2)")
-        print("  [7] 📦  Cài Đặt Thư Viện AI (torch, transformers, peft, whisper...)")
-        print("  [8] ★   Fine-Tune Whisper Nâng Cao DTU (LoRA r=32 + Curriculum + DTU Vocab)")
-        print("  [9] ★   Semantic Question Clustering Test (Gập nhóm câu hỏi DTU)")
-        print("  [10] ⚡  Quick Mode (Train nhanh - baseline / smoke test)")
-        print("  [11] ⚖️  Balanced Mode (Train cân bằng region/accent - định hướng quality)")
+        print("  [1] 🎤  Nhận diện Giọng nói Trực tiếp (Real-time Live STT: EN & VI qua micro)")
+        print("  [2] 🇻🇳  Train Chuyên Gia Tiếng Việt (Module 1 - Bảo toàn 5 dấu thanh, ViMD & VIVOS)")
+        print("  [3] 🇬🇧  Train Chuyên Gia Tiếng Anh & Giọng Vùng Miền (Module 2 - FLEURS & L2-Arctic)")
+        print("  [4] 🌐  Train Dịch Thuật Học Thuật EnViT5 (Module 3 - Song ngữ 2 chiều học thuật)")
+        print("  [5] 📊  Đánh Giá Benchmark Toàn Diện (WER & BLEU tổng hợp 2 Module)")
+        print("  [6] 🔊  Train Giọng nói Cá nhân hóa (Thu âm trực tiếp & Fine-Tune LoRA)")
+        print("  [7] 📦  Cài Đặt Thư Viện AI (torch, transformers, peft, ctranslate2...)")
+        print("  [8] ★   Semantic Question Clustering Test (Gộp nhóm câu hỏi DTU)")
         print("  [0] ❌  Thoát")
-        print("=" * 73)
+        print("=" * 75)
 
-        choice = input("👉 Nhập lựa chọn của bạn (0-11): ").strip()
+        choice = input("👉 Nhập lựa chọn của bạn (0-8): ").strip()
         if choice == "1":
             run_live_stt()
         elif choice == "2":
-            run_personal_voice_train()
+            run_vietnamese_specialist_train()
         elif choice == "3":
-            run_multi_accent_train()
+            run_english_accent_specialist_train()
         elif choice == "4":
-            run_academic_translation_train()
+            run_translation_module_train()
         elif choice == "5":
             evaluate_accuracy_benchmarks()
         elif choice == "6":
-            run_unified_pipeline()
+            run_personal_voice_train()
         elif choice == "7":
             install_ai_deps()
         elif choice == "8":
-            run_dtu_finetune()
-        elif choice == "9":
             run_question_clustering_test()
-        elif choice == "10":
-            run_quick_training_mode()
-        elif choice == "11":
-            run_balanced_training_mode()
         elif choice == "0":
             print("\nCảm ơn bạn đã sử dụng ClassBridge Master AI Manager! 👋")
             break
         else:
             print("⚠️  Lựa chọn không hợp lệ, vui lòng thử lại.")
-
 
 
 if __name__ == "__main__":

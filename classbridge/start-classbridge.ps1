@@ -54,14 +54,20 @@ $env:TRANSFORMERS_OFFLINE = "1"
 # close to the speaker while the accurate models remain available offline.
 if (-not $env:WHISPER_DEVICE) { $env:WHISPER_DEVICE = "cuda" }
 if (-not $env:WHISPER_COMPUTE_TYPE) { $env:WHISPER_COMPUTE_TYPE = "int8_float16" }
+# Unified ASR & NLLB-200 Architecture Configuration
+$systranSmall = "C:\Users\Nguyen Sy Tan\.cache\huggingface\hub\models--Systran--faster-whisper-small\snapshots\536b0662742c02347bc0e980a01041f333bce120"
 if (-not $env:WHISPER_MODEL) {
-  $env:WHISPER_MODEL = Join-Path $aiRoot "whisper-large-v3-turbo-ct2"
+  if (Test-Path -LiteralPath $systranSmall) {
+    $env:WHISPER_MODEL = $systranSmall
+  } else {
+    $env:WHISPER_MODEL = "small"
+  }
 }
-if (-not $env:WHISPER_ACCURATE_MODEL) {
-  $env:WHISPER_ACCURATE_MODEL = Join-Path $aiRoot "whisper-large-v3-turbo-ct2"
+if (-not $env:WHISPER_VI_MODEL) {
+  $env:WHISPER_VI_MODEL = $env:WHISPER_MODEL
 }
-if (-not $env:WHISPER_ENGLISH_MODEL) {
-  $env:WHISPER_ENGLISH_MODEL = $env:WHISPER_ACCURATE_MODEL
+if (-not $env:WHISPER_EN_MODEL) {
+  $env:WHISPER_EN_MODEL = $env:WHISPER_MODEL
 }
 if (-not $env:WHISPER_CPU_THREADS) { $env:WHISPER_CPU_THREADS = "8" }
 if (-not $env:WHISPER_BEAM_SIZE) { $env:WHISPER_BEAM_SIZE = "1" }
@@ -115,11 +121,11 @@ function Start-FullApp {
           Stop-ProcessTree -ProcessId $procId
         }
       }
+      Start-Sleep -Seconds 1
 
       Write-Host "  -> Dang khoi dong AI Service (Port 8000 - Kien Truc 2-Module)..." -ForegroundColor Yellow
-      $serviceScript = Join-Path $aiRoot "main.py"
       $aiProcess = Start-Process -FilePath $python `
-        -ArgumentList @("`"$serviceScript`"") `
+        -ArgumentList @("-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000") `
         -WorkingDirectory $aiRoot `
         -RedirectStandardOutput (Join-Path $aiRoot "runtime-supervised-ai.out.log") `
         -RedirectStandardError (Join-Path $aiRoot "runtime-supervised-ai.err.log") `
@@ -129,18 +135,36 @@ function Start-FullApp {
 
       $aiReady = $false
       for ($attempt = 0; $attempt -lt 180; $attempt++) {
-        if ($aiProcess.HasExited) {
-          throw "AI da dung trong luc khoi dong. Xem runtime-supervised-ai.err.log."
-        }
         try {
-          $health = Invoke-RestMethod -Uri "http://127.0.0.1:8000/health" -TimeoutSec 1
+          $health = Invoke-RestMethod -Uri "http://127.0.0.1:8000/health" -TimeoutSec 1 -ErrorAction Stop
           if ($health.status -eq "ok") {
             $aiReady = $true
             break
           }
-        } catch {
-          Start-Sleep -Seconds 1
+        } catch {}
+
+        # Nếu tiến trình launcher đã kết thúc nhưng tiến trình con đang giữ port 8000
+        if ($aiProcess.HasExited) {
+          $portConn = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
+          if ($portConn) {
+            $realPid = $portConn.OwningProcess | Select-Object -First 1
+            if ($realPid -gt 0) {
+              $aiProcess = Get-Process -Id $realPid -ErrorAction SilentlyContinue
+              Set-Content -LiteralPath (Join-Path $aiRoot "runtime-supervised-ai.pid") -Value $realPid
+            }
+          } else {
+            # Kiểm tra xem có log lỗi thực sự không
+            $errContent = ""
+            $errLogPath = Join-Path $aiRoot "runtime-supervised-ai.err.log"
+            if (Test-Path $errLogPath) {
+              $errContent = (Get-Content $errLogPath -Raw -ErrorAction SilentlyContinue).Trim()
+            }
+            if ($errContent -match "Traceback|ModuleNotFoundError|SyntaxError|ImportError") {
+              throw "AI da dung trong luc khoi dong: $errContent"
+            }
+          }
         }
+        Start-Sleep -Seconds 1
       }
       if (-not $aiReady) {
         throw "AI khong san sang sau 60 giay."
@@ -164,7 +188,7 @@ function Start-FullApp {
         throw "Khong the ap dung ban va static asset cho Windows."
       }
       $webProcess = Start-Process -FilePath $node `
-        -ArgumentList @($vinextCli, "start", "--host", "0.0.0.0", "--port", "3000") `
+        -ArgumentList @($vinextCli, "start", "-H", "0.0.0.0", "-p", "3000") `
         -WorkingDirectory $webRoot `
         -RedirectStandardOutput (Join-Path $webRoot "runtime-supervised-web.out.log") `
         -RedirectStandardError (Join-Path $webRoot "runtime-supervised-web.err.log") `
@@ -193,9 +217,9 @@ function Start-FullApp {
       Write-Host "  [OK] Web App da san sang!" -ForegroundColor Green
 
       Write-Host "`n=========================================================================" -ForegroundColor Cyan
-      Write-Host " [SUCCESS] ClassBridge AI (2-MODULE DUAL-SPECIALIST) da hoat dong thanh cong!" -ForegroundColor Green
+      Write-Host " [SUCCESS] ClassBridge AI (Unified ASR + Meta NLLB-200) da hoat dong thanh cong!" -ForegroundColor Green
       Write-Host "   Web App: http://localhost:3000" -ForegroundColor Cyan
-      Write-Host "   2-Module AI Service: http://localhost:8000" -ForegroundColor Cyan
+      Write-Host "   Unified AI Service (NLLB-200 & Unified ASR): http://localhost:8000" -ForegroundColor Cyan
       Write-Host " (Nhan Ctrl+C de dung he thong)" -ForegroundColor Gray
       Write-Host "=========================================================================`n" -ForegroundColor Cyan
 
@@ -204,13 +228,19 @@ function Start-FullApp {
       while ($true) {
         Start-Sleep -Seconds 5
 
+
+        # Kiem tra trang thai phuc vu HTTP
         $aiOk = $false
-        try {
-          $health = Invoke-RestMethod -Uri "http://127.0.0.1:8000/health" -TimeoutSec 3 -ErrorAction Stop
-          if ($health.status -eq "ok") { $aiOk = $true }
-        } catch {
-          $aiPort = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
-          if ($aiPort) { $aiOk = $true }
+        if ($null -ne $aiProcess -and -not $aiProcess.HasExited) {
+          $aiOk = $true
+        } else {
+          try {
+            $health = Invoke-RestMethod -Uri "http://127.0.0.1:8000/health" -TimeoutSec 3 -ErrorAction Stop
+            if ($health.status -eq "ok") { $aiOk = $true }
+          } catch {
+            $aiPort = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
+            if ($aiPort) { $aiOk = $true }
+          }
         }
 
         if ($aiOk) {
@@ -223,12 +253,16 @@ function Start-FullApp {
         }
 
         $webOk = $false
-        try {
-          $res = Invoke-WebRequest -Uri "http://127.0.0.1:3000" -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
-          if ($res.StatusCode -ge 200 -and $res.StatusCode -lt 500) { $webOk = $true }
-        } catch {
-          $webPort = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue
-          if ($webPort) { $webOk = $true }
+        if ($null -ne $webProcess -and -not $webProcess.HasExited) {
+          $webOk = $true
+        } else {
+          try {
+            $res = Invoke-WebRequest -Uri "http://127.0.0.1:3000" -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
+            if ($res.StatusCode -ge 200 -and $res.StatusCode -lt 500) { $webOk = $true }
+          } catch {
+            $webPort = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue
+            if ($webPort) { $webOk = $true }
+          }
         }
 
         if ($webOk) {

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ClassBridge — AI Teacher Assistant",
-  description: "Phụ đề song ngữ Anh–Việt theo thời gian thực cho lớp học quốc tế.",
+  title: "ClassBridge — Hệ thống Trợ giảng AI Song ngữ Thời gian thực",
+  description: "ClassBridge v2.0: Hệ thống nhận diện tiếng nói và dịch thuật song ngữ Anh - Việt trực tiếp qua kiến trúc Dual-Specialist 2-Module chuyên biệt trên GPU.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

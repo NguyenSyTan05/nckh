@@ -87,11 +87,11 @@ Khi bạn muốn **thay đổi dữ liệu**, **bổ sung thêm giọng đọc m
 ### Bước 2: Chạy lại script làm sạch và tạo Manifest tự động
 - **Đối với Tiếng Việt:**
   ```powershell
-  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\01_TRAIN_TIENG_VIET\01_chuan_bi_du_lieu_vi.py
+  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\01_chuan_bi_du_lieu_vi.py
   ```
 - **Đối với Tiếng Anh:**
   ```powershell
-  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\01_chuan_bi_du_lieu_en.py
+  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\01_chuan_bi_du_lieu_en.py
   ```
 Script sẽ tự động:
 - Quét kiểm tra tính toàn vẹn từng file bằng thư viện `soundfile` (loại trừ ngay file hỏng/file 0 byte).
@@ -104,70 +104,62 @@ Script sẽ tự động:
 ### A. MODULE CHUYÊN GIA TIẾNG VIỆT (MODULE 1)
 ```powershell
 # Bước 1: Chuẩn bị và phân chia tập dữ liệu
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\01_TRAIN_TIENG_VIET\01_chuan_bi_du_lieu_vi.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\01_chuan_bi_du_lieu_vi.py
 
 # Bước 2: Huấn luyện LoRA (Mặc định 1 epoch, tối ưu GPU RTX 3050)
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\01_TRAIN_TIENG_VIET\02_train_whisper_vi_lora.py --epochs 1
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\02_train_whisper_vi_lora.py --epochs 1
 
 # Bước 3: Merge LoRA và xuất sang CTranslate2 Float16
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\01_TRAIN_TIENG_VIET\03_xuat_model_vi_ct2.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\03_xuat_model_vi_ct2.py
 
 # Bước 4: Kiểm tra độ chính xác và độ trễ trên GPU
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\01_TRAIN_TIENG_VIET\kiem_tra_chuan_am_tieng_viet.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\01_TRAIN_TIENG_VIET\kiem_tra_chuan_am_tieng_viet.py
 ```
 
 ### B. MODULE CHUYÊN GIA TIẾNG ANH & ACCENT (MODULE 2)
 ```powershell
 # Bước 1: Chuẩn bị và phân chia dữ liệu tiếng Anh
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\01_chuan_bi_du_lieu_en.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\01_chuan_bi_du_lieu_en.py
 
 # Bước 2: Huấn luyện LoRA Tiếng Anh & Accent
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\02_train_whisper_en_accent_lora.py --epochs 1
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\02_train_whisper_en_accent_lora.py --epochs 1
 
 # Bước 3: Merge LoRA và xuất sang CTranslate2 Float16
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\03_xuat_model_en_ct2.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\03_xuat_model_en_ct2.py
 
 # Bước 4: Kiểm tra độ chính xác và độ trễ trên GPU
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\kiem_tra_chuan_am_tieng_anh.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\kiem_tra_chuan_am_tieng_anh.py
 ```
 
 ### C. MODULE DỊCH THUẬT HỌC THUẬT ENVIT5 (MODULE 3)
 ```powershell
 # Bước 1: Huấn luyện LoRA EnViT5 song ngữ
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\03_TRAIN_DICH_THUAT\01_train_envit5_academic.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\03_TRAIN_DICH_THUAT\01_train_envit5_academic.py
 
 # Bước 2: Kiểm tra điểm số BLEU và độ trễ dịch thuật trên GPU
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\03_TRAIN_DICH_THUAT\kiem_tra_dich_thuat_bleu.py
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\03_TRAIN_DICH_THUAT\kiem_tra_dich_thuat_bleu.py
 ```
 
 ---
 
 ## 5. KHỞI CHẠY ỨNG DỤNG & ĐO BENCHMARK SO SÁNH
 
-### 🕹️ Cách 1: Sử dụng Menu Điều Khiển Trung Tâm (Khuyên Dùng)
-Chỉ cần chạy 1 file `main.py` để chọn chức năng bằng bàn phím (1-10):
+### 🕹️ Cách 1: Sử dụng Master Script 1-Click (Khuyên Dùng)
+Chạy toàn bộ ứng dụng (AI Service GPU + Web Frontend):
 ```powershell
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\main.py
+powershell -ExecutionPolicy Bypass -File .\classbridge\start-classbridge.ps1 -Mode run
 ```
 
-### 🚀 Cách 2: Chạy trực tiếp từng App
-- **Chạy App 2 (Hệ thống 2-Module đề xuất - Port 8000):**
-  ```powershell
-  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\start_app2_dual_module.py
-  ```
-- **Chạy App 1 (Hệ thống 1-Module truyền thống để so sánh - Port 8001):**
-  ```powershell
-  & "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\start_app1_single_module.py
-  ```
-- **Chạy song song cả 2 App cùng lúc:**
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File d:\TailieuNPKH\DoAN2module\chay_song_song_2_app.ps1
-  ```
-
-### 📊 Cách 3: Đo Benchmark lấy số liệu cho Báo Cáo Đồ Án
-Chạy file đo tự động trên cả dữ liệu tiếng Việt thuần, tiếng Anh accent và tiếng Anh-Việt lẫn lộn (Code-Switching):
+### 🚀 Cách 2: Chạy trực tiếp AI Backend Service (Port 8000)
 ```powershell
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\test_benchmark_2_module.py
+cd d:\TailieuNPKH\classbridge\backend\ai-service
+.\.venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+### 🚀 Cách 3: Kiểm Tra Trực Tiếp Model Hiện Tại (1 Luồng ASR ➜ Dịch thuật)
+Chạy script kiểm tra trực tiếp 1 luồng:
+```powershell
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\06_danh_gia_so_sanh_wer_bleu.py
 ```
 
 ---
@@ -185,7 +177,7 @@ Tất cả các script huấn luyện (`02_train_...`) đều hỗ trợ tham s�
 
 **Ví dụ chạy train 3 epoch với batch size 4:**
 ```powershell
-& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\DoAN2module\Module_Train\02_TRAIN_TIENG_ANH\02_train_whisper_en_accent_lora.py --epochs 3 --batch_size 4
+& "d:\TailieuNPKH\classbridge\backend\ai-service\.venv\Scripts\python.exe" d:\TailieuNPKH\classbridge\training\Module_Train\02_TRAIN_TIENG_ANH\02_train_whisper_en_accent_lora.py --epochs 3 --batch_size 4
 ```
 
 ---
@@ -204,3 +196,4 @@ Tất cả các script huấn luyện (`02_train_...`) đều hỗ trợ tham s�
 
 ### 3. Mô hình nạp sai đường dẫn
 - **Cơ chế nạp tự động:** Cả `vi_speech_recognizer.py` và `en_speech_recognizer.py` đều ưu tiên nạp mô hình cục bộ vừa train (`model_vi_ct2` và `model_en_ct2`). Nếu chưa tìm thấy, hệ thống sẽ tự động chuyển sang mô hình dự phòng (fallback) mà không làm ngắt quãng chương trình.
+

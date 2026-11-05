@@ -53,7 +53,9 @@ cache/
 *.zip
 *.parquet
 
-# Heavy Audio Datasets (Keep manifests and code only)
+# Heavy Audio Datasets & Model Cache (Keep manifests and code only)
+.models/
+classbridge/backend/ai-service/.models/
 classbridge/training/data/downloads/
 classbridge/training/data/vivos/
 classbridge/training/ViMD_Dataset/
@@ -61,6 +63,8 @@ classbridge/backend/data/samples/
 classbridge/training/outputs/
 classbridge/backend/ai-service/Module_Train/**/output_model_*
 classbridge/backend/ai-service/Module_Train/**/model_*_ct2
+classbridge/training/Module_Train/**/output_model_*
+classbridge/training/Module_Train/**/model_*_ct2
 ai_backend/03_MODEL_CHECKPOINTS/
 ai_backend/04_DATASETS_TAM_THOI/audio/
 
